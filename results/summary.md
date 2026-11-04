@@ -16,7 +16,15 @@
 | run | rollout acc, first 10 iters | last 10 iters | score first 10 | last 10 | KL last 10 | val acc start → end |
 |---|--:|--:|--:|--:|--:|--:|
 | ppochecker_s1 | 30.9 | 25.8 | -0.381 | -0.484 | 0.109 | 32.0 → 34.0 |
+| ppochecker_s2 | 28.1 | 29.8 | -0.438 | -0.403 | 0.089 | 32.0 → 35.0 |
 | rlhf_s1 | 28.7 | 25.3 | -0.044 | -0.029 | 0.356 | 32.0 → 33.7 |
+| rlhf_s2 | 29.4 | 27.0 | -0.022 | -0.027 | 0.364 | 32.0 → 32.7 |
+
+## Rejection-sampling fine-tuning rounds
+
+- rft_s1 round 1: 609 verified examples (yield prop 0.42, fol 0.93, nat 0.36, linear 0.31), 29 steps, val accuracy 34.0%
+- rft_s1 round 2: 582 verified examples (yield prop 0.42, fol 0.88, nat 0.33, linear 0.31), 28 steps, val accuracy 34.3%
+- rft_s2 round 1: 606 verified examples (yield prop 0.43, fol 0.92, nat 0.36, linear 0.31), 29 steps, val accuracy 31.3%
 
 ## SFT validation accuracy
 

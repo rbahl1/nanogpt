@@ -1,0 +1,4 @@
+sft-continued: from out/sft.pt (sft), 80,000 train examples, 300 val problems, device cpu
+iter    300  lr 5.77e-05  train loss 0.1186  val loss 0.1147  val acc prop 0.293 (22/75), fol 0.827 (62/75), nat 0.120 (9/75), linear 0.107 (8/75), all 0.337 (101/300)  238s
+iter    600  lr 1.00e-05  train loss 0.1109  val loss 0.1071  val acc prop 0.240 (18/75), fol 0.840 (63/75), nat 0.133 (10/75), linear 0.187 (14/75), all 0.350 (105/300)  480s
+saved out/sftplus_s1.pt

@@ -1,0 +1,144 @@
+{
+ "stage": "rft",
+ "preset": "small",
+ "config": {
+  "sft": "out/sft.pt",
+  "out": "out/rft_s2.pt",
+  "domains": "all",
+  "rounds": 2,
+  "prompts_per_round": 1200,
+  "samples_per_prompt": 4,
+  "temperature": 1.0,
+  "max_new_tokens": 200,
+  "keep_per_prompt": 1,
+  "replay_frac": 0.0,
+  "epochs_per_round": 3.0,
+  "iters_per_round": 300,
+  "batch_size": 64,
+  "lr": 0.0001,
+  "min_lr": 1e-05,
+  "warmup_iters": 20,
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "eval_problems": 75,
+  "seed": 2,
+  "device": "auto"
+ },
+ "sft": {
+  "path": "out/sft.pt",
+  "stage": "sft"
+ },
+ "policy_samples": 9600,
+ "rounds": [
+  {
+   "round": 1,
+   "yield": {
+    "prop": 0.4266666666666667,
+    "fol": 0.9233333333333333,
+    "nat": 0.36333333333333334,
+    "linear": 0.30666666666666664
+   },
+   "sample_accuracy": {
+    "prop": 0.25333333333333335,
+    "fol": 0.71,
+    "nat": 0.15333333333333332,
+    "linear": 0.0925
+   },
+   "examples": 606,
+   "finished": 0.9997916666666666,
+   "train_loss": 0.035857742523838734,
+   "final_loss": 0.03278070688247681,
+   "steps": 29,
+   "val": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 57,
+     "accuracy": 0.76
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 7,
+     "accuracy": 0.09333333333333334
+    },
+    "all": {
+     "n": 300,
+     "correct": 94,
+     "accuracy": 0.31333333333333335
+    }
+   },
+   "seconds": 96.8317620754242
+  }
+ ],
+ "evals": [
+  {
+   "round": 0,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 60,
+     "accuracy": 0.8
+    },
+    "nat": {
+     "n": 75,
+     "correct": 14,
+     "accuracy": 0.18666666666666668
+    },
+    "linear": {
+     "n": 75,
+     "correct": 3,
+     "accuracy": 0.04
+    },
+    "all": {
+     "n": 300,
+     "correct": 96,
+     "accuracy": 0.32
+    }
+   }
+  },
+  {
+   "round": 1,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 57,
+     "accuracy": 0.76
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 7,
+     "accuracy": 0.09333333333333334
+    },
+    "all": {
+     "n": 300,
+     "correct": 94,
+     "accuracy": 0.31333333333333335
+    }
+   }
+  }
+ ]
+}
