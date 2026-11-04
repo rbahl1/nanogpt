@@ -84,7 +84,8 @@ def passk_table(passk: dict):
     out = {}
     for e in passk["checkpoints"]:
         if e.get("passk"):
-            out[e["label"]] = e["passk"]
+            out[e["label"]] = {d: {k: v for k, v in r.items() if k.startswith("pass@")}
+                               for d, r in e["passk"]["results"].items()}
     return out
 
 
