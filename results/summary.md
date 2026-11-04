@@ -1,3 +1,32 @@
+## Test accuracy (lean verdicts; prop 500, fol 500, nat 500, linear 500 problems)
+
+| checkpoint | prop | fol | nat | linear | all | Δ all vs SFT [95% CI] | p |
+|---|--:|--:|--:|--:|--:|--:|--:|
+| pretrained | 15.2 | 22.4 | 9.2 | 9.0 | 14.0 | | |
+| SFT | 32.4 | 77.6 | 15.8 | 13.0 | 34.7 | | |
+| RLHF (PPO vs reward model) (3 seeds) | 30.1 ± 1.8 | 75.1 ± 0.6 | 14.4 ± 0.4 | 11.5 ± 0.8 | 32.8 ± 0.2 | -1.9 [-3.2, -0.7] | 0.0029 |
+| PPO vs checker (3 seeds) | 32.3 ± 0.8 | 77.9 ± 0.8 | 14.5 ± 0.3 | 12.4 ± 1.7 | 34.3 ± 0.4 | -0.4 [-1.5, +0.6] | 0.43 |
+| rejection-sampling FT (3 seeds) | 30.2 ± 0.5 | 73.8 ± 1.6 | 13.6 ± 0.7 | 11.3 ± 3.2 | 32.2 ± 1.1 | -2.5 [-3.8, -1.2] | 0.00015 |
+| more SFT (control) (3 seeds) | 32.5 ± 1.2 | 81.1 ± 0.3 | 15.1 ± 1.0 | 13.0 ± 1.1 | 35.4 ± 0.2 | +0.7 [-0.4, +1.9] | 0.21 |
+
+Per checkpoint (finished answers, mean answer length, checker vs Lean disagreements):
+
+| checkpoint | all | finished | answer chars | checker true, Lean false | checker false, Lean true |
+|---|--:|--:|--:|--:|--:|
+| pretrain | 14.0 | 99.9 | 27.5 | 0 | 0 |
+| sft | 34.7 | 100.0 | 22.2 | 0 | 0 |
+| rlhf_s1 | 32.6 | 100.0 | 22.2 | 0 | 0 |
+| rlhf_s2 | 33.0 | 100.0 | 22.3 | 0 | 1 |
+| rlhf_s3 | 32.7 | 100.0 | 22.0 | 0 | 1 |
+| ppochecker_s1 | 34.5 | 100.0 | 22.4 | 0 | 0 |
+| ppochecker_s2 | 33.9 | 100.0 | 22.2 | 0 | 0 |
+| ppochecker_s3 | 34.4 | 100.0 | 22.1 | 0 | 0 |
+| rft_s1 | 33.5 | 100.0 | 21.7 | 0 | 1 |
+| rft_s2 | 31.6 | 100.0 | 21.7 | 0 | 1 |
+| rft_s3 | 31.6 | 100.0 | 21.7 | 0 | 0 |
+| sftplus_s1 | 35.1 | 100.0 | 22.4 | 0 | 0 |
+| sftplus_s2 | 35.6 | 100.0 | 22.7 | 0 | 0 |
+| sftplus_s3 | 35.5 | 100.0 | 22.5 | 0 | 0 |
 
 ## Reward model
 

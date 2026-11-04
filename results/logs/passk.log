@@ -1,0 +1,3 @@
+400 test problems (100 per domain: prop, fol, nat, linear), 5 checkpoints, device cpu
+sft: checker accuracy 0.365 (64s)
+rlhf_s1: checker accuracy 0.340 (53s)

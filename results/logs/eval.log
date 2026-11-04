@@ -1,0 +1,53 @@
+2000 test problems (500 per domain: prop, fol, nat, linear), 14 checkpoints, device cpu
+pretrain: checker accuracy 0.140 (25s)
+sft: checker accuracy 0.347 (18s)
+rlhf_s1: checker accuracy 0.326 (18s)
+rlhf_s2: checker accuracy 0.330 (20s)
+rlhf_s3: checker accuracy 0.327 (17s)
+ppochecker_s1: checker accuracy 0.345 (20s)
+ppochecker_s2: checker accuracy 0.339 (18s)
+ppochecker_s3: checker accuracy 0.344 (17s)
+rft_s1: checker accuracy 0.335 (16s)
+rft_s2: checker accuracy 0.316 (16s)
+rft_s3: checker accuracy 0.316 (16s)
+sftplus_s1: checker accuracy 0.351 (17s)
+sftplus_s2: checker accuracy 0.356 (18s)
+sftplus_s3: checker accuracy 0.355 (18s)
+compiling 8,174 distinct declarations with Lean...
+Lean: 86s
+
+checker accuracy (greedy)
+checkpoint     stage               prop      fol      nat   linear      all  cut off malformed
+pretrain       pretrain           0.152    0.224    0.092    0.090    0.140        2         0
+sft            sft                0.324    0.776    0.158    0.130    0.347        0         0
+rlhf_s1        rlhf               0.282    0.754    0.148    0.120    0.326        0         0
+rlhf_s2        rlhf               0.316    0.744    0.140    0.118    0.330        1         0
+rlhf_s3        rlhf               0.300    0.756    0.144    0.106    0.327        0         0
+ppochecker_s1  ppo-checker        0.314    0.784    0.148    0.136    0.345        0         0
+ppochecker_s2  ppo-checker        0.324    0.784    0.142    0.104    0.339        0         0
+ppochecker_s3  ppo-checker        0.330    0.770    0.146    0.132    0.344        0         0
+rft_s1         rft                0.298    0.754    0.136    0.150    0.335        0         0
+rft_s2         rft                0.306    0.722    0.142    0.092    0.316        0         0
+rft_s3         rft                0.300    0.738    0.128    0.096    0.316        0         0
+sftplus_s1     sft-continued      0.312    0.814    0.160    0.120    0.351        0         0
+sftplus_s2     sft-continued      0.332    0.810    0.154    0.128    0.356        0         0
+sftplus_s3     sft-continued      0.332    0.808    0.140    0.142    0.355        0         0
+
+Lean accuracy (every finished answer compiled); checker vs Lean disagreements over all domains
+checkpoint     stage               prop      fol      nat   linear      all  chk+ Lean-  chk- Lean+
+pretrain       pretrain           0.152    0.224    0.092    0.090    0.140           0           0
+sft            sft                0.324    0.776    0.158    0.130    0.347           0           0
+rlhf_s1        rlhf               0.282    0.754    0.148    0.120    0.326           0           0
+rlhf_s2        rlhf               0.318    0.744    0.140    0.118    0.330           0           1
+rlhf_s3        rlhf               0.302    0.756    0.144    0.106    0.327           0           1
+ppochecker_s1  ppo-checker        0.314    0.784    0.148    0.136    0.345           0           0
+ppochecker_s2  ppo-checker        0.324    0.784    0.142    0.104    0.339           0           0
+ppochecker_s3  ppo-checker        0.330    0.770    0.146    0.132    0.344           0           0
+rft_s1         rft                0.298    0.754    0.138    0.150    0.335           0           1
+rft_s2         rft                0.308    0.722    0.142    0.092    0.316           0           1
+rft_s3         rft                0.300    0.738    0.128    0.096    0.316           0           0
+sftplus_s1     sft-continued      0.312    0.814    0.160    0.120    0.351           0           0
+sftplus_s2     sft-continued      0.332    0.810    0.154    0.128    0.356           0           0
+sftplus_s3     sft-continued      0.332    0.808    0.140    0.142    0.355           0           0
+
+wrote results/eval.json

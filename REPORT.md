@@ -3,9 +3,9 @@ title: "Fine-tuning a Lean-4-only GPT: does RLHF beat supervised fine-tuning?"
 subtitle: "nanoGPT (0.8M parameters) · pretraining, SFT, RLHF and alternatives, measured with a proof checker and Lean 4"
 ---
 
-**Status (4 Nov 2026).** The first full run is complete (section 4.1). A larger replication, with three seeds, two more
-post-training arms and every answer compiled by Lean 4, is running now; its numbers so far are in section 4.2. This
-report is updated in place at the same link as the replication finishes.
+**Status (4 Nov 2026).** The first run (section 4.1) and the replication's training and test evaluation (section 4.2)
+are complete: 14 checkpoints, 2,000 test problems each, every answer compiled by Lean 4. The detailed analysis is
+being written and will replace this version at the same link.
 
 ## Summary
 
@@ -27,14 +27,27 @@ on held-out comparisons, and the reward against true accuracy during PPO.
 
 **What I learned.**
 
-* RLHF did not beat SFT: 38.7% against 38.0% on 1,200 test problems, inside the ±1.4-point standard error.
-* The reward model was the bottleneck. It ranked only 57% of held-out pairs correctly (55.8% in the replication) while
-  fitting its training pairs.
-* With a looser KL penalty, PPO exploited the reward model: the reward rose while checked accuracy fell from 41% to 8%.
-* A PPO iterate that looked 4.6 points better on the validation split was the best of 16 noisy evaluations, and did not
-  hold up on the test split.
-* PPO against the checker itself was no better at this scale. RL mostly redistributed probability among answers the SFT
-  model could already produce.
+* **No post-training method beat SFT.** In the replication (2,000 test problems, Lean-verified, 3 seeds, paired
+  bootstrap 95% CIs), against SFT at 34.7%:
+
+  * RLHF lost 1.9 points [−3.2, −0.7], p = 0.003;
+
+  * PPO against the checker changed nothing (−0.4 [−1.5, +0.6]);
+
+  * rejection-sampling fine-tuning lost 2.5 points [−3.8, −1.2];
+
+  * training SFT for 600 more steps gained 0.7 [−0.4, +1.9].
+  In the first run, RLHF got 38.7% against SFT's 38.0%, inside the ±1.4-point standard error.
+
+* **The reward model was the bottleneck.** It ranked only 57% (first run) and 55.8% (replication) of held-out pairs
+  correctly while fitting its training pairs. PPO against it lowered true accuracy. With a looser KL penalty in the
+  first run, the reward rose while checked accuracy fell from 41% to 8%.
+
+* **Small validation sets mislead.** On the 300-problem validation split, 11 of the 12 post-trained runs scored above
+  SFT (by 0.7 to 5.0 points) and one tied. On the 2,000-problem test set, all nine RL runs scored below it. In the first run,
+  an iterate selected for being 4.6 points better on validation did not hold up on test.
+
+* **The checker held up.** Across 28,000 evaluated answers, it never accepted an answer Lean rejected.
 
 ## 1. The model and the data
 
@@ -50,10 +63,13 @@ must compile.
 
 * **Model.** A character-level GPT-2-style transformer with 4 layers, 4 heads, width 128, a 256-token context, tied
   embeddings and 803,072 parameters.
+
 * **Tokens.** Sequences are `<bos> header <ans> answer <eos>`. Pretraining documents are whole declarations.
+
 * **Checkers.** Each domain has a generator and a checker: a Python implementation of the fragment of Lean 4 the domain
   uses, fast enough to judge every sample during training. A checker must be sound with respect to Lean: it may reject a
   proof Lean accepts, never the reverse.
+
 * **Testing the checkers.** The tests compile generated declarations, and hundreds of thousands of mutated answers the
   checkers accept, with Lean 4.34. A JavaScript port of every checker drives an in-browser chat page, and the tests
   check that it agrees with the Python one.
@@ -79,15 +95,22 @@ as RLHF with human labels does.
 * **Held-out problems.** Problems are split train/val/test (90/5/5) by a hash of their canonical form. For logic, atoms
   are renamed in order of appearance and bound variables normalised. For arithmetic, commuted operands and swapped sides
   of an equation are identified. A respelled test problem therefore cannot leak into training.
+
 * **Metric.** Greedy pass@1. An answer counts only if it is finished and accepted.
+
   * First run: judged by the checkers.
+
   * Replication: also compiled with Lean 4. Checker false positives and false negatives are counted, and every model is
     scored on the same 2,000 test problems (500 per domain).
+
 * **Statistics** (replication). Wilson intervals for each accuracy. Paired bootstrap intervals and exact McNemar tests
   for each difference from SFT. Three training seeds per arm, plus sampled pass@k (16 samples) to separate gains in
   reliability from gains in what the model can produce at all.
+
 * **Diagnostics.**
+
   * The reward model's pairwise accuracy and AUC on prompts it was not trained on.
+
   * The reward model's score against checked accuracy across PPO iterations, to detect reward hacking.
 
 ## 4. Results
@@ -106,48 +129,66 @@ Accuracy on 1,200 held-out test problems (300 per domain), greedy decoding, judg
 
 * **Pretraining and SFT do the work.** The base model already proves a quarter of the problems by completing them as
   documents; SFT adds 11 points.
+
 * **RLHF does not measurably improve on SFT.** The +0.7 points is within noise (the standard error on 1,200 problems is
   about 1.4 points), and the last iterate is worse.
+
 * **The reward model is the bottleneck.** It was trained on 22,009 checker-labelled comparisons and ranks held-out pairs
   correctly 57% of the time. Judging whether `(7 + 5) * 3 - 4 = 34` is right is as hard for it as for the policy.
+
 * **Reward hacking with a looser leash.** An earlier configuration, with a weaker reward model and a looser KL penalty,
   saw the reward model's score rise while checked accuracy fell from 41% to 8%. The run above uses the settings that
   stayed stable: learning rate 5e-6, KL coefficient 0.1, 2 PPO epochs.
+
 * **Selection on validation did not transfer.** The iterate kept looked 4.6 points better than SFT on the val split,
   but it was the best of 16 noisy evaluations and the gain was not there on test.
+
 * **PPO itself works.** On a synthetic reward (short answers) it goes from 30% to 97% in 30 iterations, and a single
   update raises the log-probability of correct proofs relative to wrong ones. Optimising the checker directly was no
   better than the learned reward: at 0.8M parameters, RL mostly redistributes probability among answers the SFT model
   already produces.
 
-### 4.2 Replication (running)
+### 4.2 Replication (complete)
 
 The replication fixes the first run's weak points:
-* three seeds per arm, and the last iterate always (no selection on val);
-* 2,000 test problems instead of 1,200;
-* every answer compiled with Lean 4;
-* paired statistics;
-* two more arms: rejection-sampling fine-tuning, and "more SFT" on fresh references to check whether SFT was simply
-  undertrained.
 
-It also fixes a confound found in review. Batched generation gave every prompt the token budget of the longest prompt
-in its batch, which capped PPO's answers at about 105 tokens while the other arms got the full budget.
+* three seeds per arm, and the last iterate always (no selection on val);
+
+* 2,000 test problems instead of 1,200;
+
+* every answer compiled with Lean 4;
+
+* paired statistics;
+
+* two more arms: rejection-sampling fine-tuning, and "more SFT" on fresh references.
 
 The problem generators were rebuilt for this run, so absolute accuracies are not comparable with section 4.1.
 
-| stage | result so far |
-|---|---|
-| pretraining (5,000 steps) | validation loss 0.537 → 0.323 (train 0.315) |
-| SFT (3,000 steps), val split, 75 problems per domain | prop 25.3%, fol 80.0%, nat 18.7%, linear 4.0%, **all 32.0%** |
-| SFT samples used for the reward model (48,000 at temperature 1) | checked correct: prop 21.0%, fol 71.2%, nat 13.3%, linear 10.9% |
-| reward model: 25,622 training comparisons, 1,161 held out (251 prompts) | held-out pairwise accuracy **55.8%** (prop 58.1, fol 64.2, nat 53.4, linear 52.7); AUC for correctness 0.62 |
-| reward model fit | train loss 0.32 vs held-out loss 1.02, held-out loss rising from step 500: it memorises its comparisons |
-| RLHF, PPO vs checker, RFT, more SFT (× 3 seeds) | running |
-| test evaluation (2,000 problems, Lean-compiled) and pass@k | pending |
+Test accuracy, Lean-verified, on 500 problems per domain. Arms show the mean ± standard deviation over 3 seeds; the
+difference from SFT pools the seeds, with a paired bootstrap 95% CI and a paired p-value:
 
-The replication's reward model again sits barely above chance on prompts it has not seen. That accuracy is what PPO
-has to work with in the RLHF arm, so the first run's conclusion that RLHF is limited by its reward model is on track to
-replicate. The checker and RFT arms do not depend on the reward model.
+| checkpoint | prop | fol | nat | linear | all | Δ all vs SFT [95% CI] | p |
+|---|--:|--:|--:|--:|--:|--:|--:|
+| pretrained | 15.2 | 22.4 | 9.2 | 9.0 | 14.0 | | |
+| SFT | 32.4 | 77.6 | 15.8 | 13.0 | 34.7 | | |
+| RLHF (PPO vs reward model) | 30.1 ± 1.8 | 75.1 ± 0.6 | 14.4 ± 0.4 | 11.5 ± 0.8 | 32.8 ± 0.2 | −1.9 [−3.2, −0.7] | 0.003 |
+| PPO vs checker | 32.3 ± 0.8 | 77.9 ± 0.8 | 14.5 ± 0.3 | 12.4 ± 1.7 | 34.3 ± 0.4 | −0.4 [−1.5, +0.6] | 0.43 |
+| rejection-sampling FT | 30.2 ± 0.5 | 73.8 ± 1.6 | 13.6 ± 0.7 | 11.3 ± 3.2 | 32.2 ± 1.1 | −2.5 [−3.8, −1.2] | 0.0002 |
+| more SFT (control) | 32.5 ± 1.2 | 81.1 ± 0.3 | 15.1 ± 1.0 | 13.0 ± 1.1 | 35.4 ± 0.2 | +0.7 [−0.4, +1.9] | 0.21 |
+
+![Test accuracy by domain; dots are individual seeds.](results/fig_test_accuracy.png)
+
+* **Reward model.** It was trained on 25,622 comparisons, with 1,161 held out from 251 prompts. It ranked 55.8% of the
+  held-out pairs correctly, and its score separated correct from incorrect answers with an AUC of 0.62. By the end of
+  training, its training loss was 0.32 against a held-out loss of 1.02.
+
+* **Validation versus test.** SFT scored 32.0% on the 300-problem val split and 34.7% on test. Every arm's final
+  iterate scored 32.0–37.0% on val, all at or above SFT, yet every RL arm was below SFT on test.
+
+* **Lean audit.** Across all 28,000 evaluated answers (8,174 distinct declarations), the checker never accepted an
+  answer Lean rejected. Lean accepted 4 answers the checker had rejected.
+
+![Left: the reward PPO optimises. Right: checked accuracy of the rollouts (solid) and on val (dotted).](results/fig_ppo.png)
 
 ## 5. What I learned
 
