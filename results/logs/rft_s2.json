@@ -77,6 +77,54 @@
     }
    },
    "seconds": 96.8317620754242
+  },
+  {
+   "round": 2,
+   "yield": {
+    "prop": 0.39,
+    "fol": 0.86,
+    "nat": 0.2733333333333333,
+    "linear": 0.2866666666666667
+   },
+   "sample_accuracy": {
+    "prop": 0.24083333333333334,
+    "fol": 0.6991666666666667,
+    "nat": 0.12083333333333333,
+    "linear": 0.08833333333333333
+   },
+   "examples": 543,
+   "finished": 0.9997916666666666,
+   "train_loss": 0.033595795886447795,
+   "final_loss": 0.027250319719314575,
+   "steps": 26,
+   "val": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 57,
+     "accuracy": 0.76
+    },
+    "nat": {
+     "n": 75,
+     "correct": 12,
+     "accuracy": 0.16
+    },
+    "linear": {
+     "n": 75,
+     "correct": 8,
+     "accuracy": 0.10666666666666667
+    },
+    "all": {
+     "n": 300,
+     "correct": 96,
+     "accuracy": 0.32
+    }
+   },
+   "seconds": 78.96527123451233
   }
  ],
  "evals": [
@@ -139,6 +187,37 @@
      "accuracy": 0.31333333333333335
     }
    }
+  },
+  {
+   "round": 2,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 57,
+     "accuracy": 0.76
+    },
+    "nat": {
+     "n": 75,
+     "correct": 12,
+     "accuracy": 0.16
+    },
+    "linear": {
+     "n": 75,
+     "correct": 8,
+     "accuracy": 0.10666666666666667
+    },
+    "all": {
+     "n": 300,
+     "correct": 96,
+     "accuracy": 0.32
+    }
+   }
   }
- ]
+ ],
+ "policy_samples_drawn": 9600
 }

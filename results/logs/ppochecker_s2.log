@@ -132,3 +132,37 @@ iter  118  score -0.406  rm -0.418  kl 0.106  acc 0.297 (prop 0.25 fol 0.69 nat 
 iter  119  score -0.406  rm -0.287  kl 0.129  acc 0.297 (prop 0.12 fol 0.75 nat 0.19 linear 0.12)  fin 1.00  pg +0.0052  vf 0.1137  clip 0.000  6.3s
 iter  120  score -0.469  rm +0.057  kl 0.061  acc 0.266 (prop 0.19 fol 0.69 nat 0.06 linear 0.12)  fin 1.00  pg +0.0023  vf 0.0964  clip 0.001  4.7s
   val @ 120: prop 0.307 (23/75), fol 0.800 (60/75), nat 0.173 (13/75), linear 0.120 (9/75), all 0.350 (105/300)
+iter  121  score -0.562  rm -0.592  kl -0.001  acc 0.219 (prop 0.06 fol 0.69 nat 0.12 linear 0.00)  fin 1.00  pg -0.0053  vf 0.0552  clip 0.001  10.6s
+iter  122  score -0.469  rm -0.287  kl 0.065  acc 0.266 (prop 0.25 fol 0.62 nat 0.12 linear 0.06)  fin 1.00  pg +0.0002  vf 0.0793  clip 0.000  6.7s
+iter  123  score -0.562  rm -0.412  kl 0.089  acc 0.219 (prop 0.12 fol 0.69 nat 0.00 linear 0.06)  fin 1.00  pg -0.0042  vf 0.0605  clip 0.001  6.9s
+iter  124  score -0.281  rm +0.002  kl 0.101  acc 0.359 (prop 0.25 fol 0.81 nat 0.25 linear 0.12)  fin 1.00  pg -0.0194  vf 0.1312  clip 0.000  5.2s
+iter  125  score -0.438  rm -0.193  kl 0.187  acc 0.281 (prop 0.06 fol 0.62 nat 0.12 linear 0.31)  fin 1.00  pg -0.0043  vf 0.1146  clip 0.001  4.6s
+iter  126  score -0.469  rm -0.121  kl 0.180  acc 0.266 (prop 0.19 fol 0.69 nat 0.12 linear 0.06)  fin 1.00  pg +0.0037  vf 0.0887  clip 0.001  7.7s
+iter  127  score -0.500  rm +0.018  kl 0.016  acc 0.250 (prop 0.06 fol 0.81 nat 0.00 linear 0.12)  fin 1.00  pg -0.0151  vf 0.0528  clip 0.001  7.2s
+iter  128  score -0.188  rm +0.104  kl 0.095  acc 0.406 (prop 0.38 fol 0.81 nat 0.19 linear 0.25)  fin 1.00  pg -0.0276  vf 0.1435  clip 0.001  5.8s
+iter  129  score -0.344  rm -0.172  kl 0.107  acc 0.328 (prop 0.25 fol 0.75 nat 0.06 linear 0.25)  fin 1.00  pg -0.0007  vf 0.1174  clip 0.001  5.6s
+iter  130  score -0.500  rm +0.411  kl 0.210  acc 0.250 (prop 0.12 fol 0.69 nat 0.19 linear 0.00)  fin 1.00  pg +0.0068  vf 0.1118  clip 0.001  5.1s
+  val @ 130: prop 0.320 (24/75), fol 0.853 (64/75), nat 0.160 (12/75), linear 0.107 (8/75), all 0.360 (108/300)
+iter  131  score -0.594  rm +0.021  kl 0.024  acc 0.203 (prop 0.06 fol 0.50 nat 0.00 linear 0.25)  fin 1.00  pg +0.0018  vf 0.0994  clip 0.001  5.5s
+iter  132  score -0.312  rm -0.127  kl 0.171  acc 0.344 (prop 0.25 fol 0.75 nat 0.19 linear 0.19)  fin 1.00  pg +0.0049  vf 0.1206  clip 0.000  5.1s
+iter  133  score -0.344  rm -0.311  kl 0.143  acc 0.328 (prop 0.31 fol 0.75 nat 0.19 linear 0.06)  fin 1.00  pg +0.0046  vf 0.0989  clip 0.000  6.2s
+iter  134  score -0.406  rm -0.755  kl 0.087  acc 0.297 (prop 0.38 fol 0.62 nat 0.12 linear 0.06)  fin 1.00  pg -0.0237  vf 0.1185  clip 0.000  5.6s
+iter  135  score -0.297  rm -0.586  kl 0.142  acc 0.359 (prop 0.19 fol 0.75 nat 0.12 linear 0.38)  fin 0.98  pg -0.0129  vf 0.1382  clip 0.001  5.2s
+iter  136  score -0.438  rm +0.447  kl 0.221  acc 0.281 (prop 0.31 fol 0.69 nat 0.06 linear 0.06)  fin 1.00  pg -0.0244  vf 0.0838  clip 0.000  6.8s
+iter  137  score -0.375  rm +0.220  kl 0.184  acc 0.312 (prop 0.31 fol 0.81 nat 0.06 linear 0.06)  fin 1.00  pg -0.0052  vf 0.0852  clip 0.000  5.3s
+iter  138  score -0.344  rm -0.192  kl 0.162  acc 0.328 (prop 0.38 fol 0.81 nat 0.12 linear 0.00)  fin 1.00  pg +0.0207  vf 0.1011  clip 0.001  5.2s
+iter  139  score -0.438  rm -0.573  kl 0.039  acc 0.281 (prop 0.25 fol 0.62 nat 0.12 linear 0.12)  fin 1.00  pg -0.0186  vf 0.1181  clip 0.000  5.5s
+iter  140  score -0.406  rm -0.169  kl 0.092  acc 0.297 (prop 0.31 fol 0.69 nat 0.06 linear 0.12)  fin 1.00  pg +0.0032  vf 0.1069  clip 0.001  5.3s
+  val @ 140: prop 0.307 (23/75), fol 0.827 (62/75), nat 0.173 (13/75), linear 0.120 (9/75), all 0.357 (107/300)
+iter  141  score -0.281  rm -0.431  kl 0.285  acc 0.359 (prop 0.38 fol 0.62 nat 0.31 linear 0.12)  fin 1.00  pg -0.0023  vf 0.1388  clip 0.001  5.9s
+iter  142  score -0.500  rm -0.378  kl 0.129  acc 0.250 (prop 0.12 fol 0.81 nat 0.06 linear 0.00)  fin 1.00  pg +0.0002  vf 0.0613  clip 0.000  6.6s
+iter  143  score -0.438  rm +0.052  kl 0.101  acc 0.281 (prop 0.06 fol 0.88 nat 0.12 linear 0.06)  fin 1.00  pg -0.0134  vf 0.0577  clip 0.001  5.7s
+iter  144  score -0.531  rm -0.831  kl 0.268  acc 0.234 (prop 0.06 fol 0.62 nat 0.06 linear 0.19)  fin 1.00  pg +0.0043  vf 0.0968  clip 0.002  7.1s
+iter  145  score -0.500  rm +0.088  kl 0.054  acc 0.250 (prop 0.19 fol 0.62 nat 0.19 linear 0.00)  fin 1.00  pg -0.0057  vf 0.1044  clip 0.000  5.9s
+iter  146  score -0.344  rm +0.025  kl 0.110  acc 0.328 (prop 0.38 fol 0.81 nat 0.00 linear 0.12)  fin 1.00  pg +0.0185  vf 0.1013  clip 0.001  5.3s
+iter  147  score -0.438  rm -0.216  kl 0.114  acc 0.281 (prop 0.25 fol 0.75 nat 0.06 linear 0.06)  fin 1.00  pg +0.0025  vf 0.0797  clip 0.000  5.2s
+iter  148  score -0.469  rm -1.110  kl 0.050  acc 0.266 (prop 0.19 fol 0.56 nat 0.12 linear 0.19)  fin 1.00  pg -0.0100  vf 0.1151  clip 0.001  9.3s
+iter  149  score -0.344  rm -0.431  kl 0.148  acc 0.328 (prop 0.25 fol 0.69 nat 0.31 linear 0.06)  fin 1.00  pg -0.0068  vf 0.0859  clip 0.001  5.7s
+iter  150  score -0.312  rm -0.444  kl -0.045  acc 0.344 (prop 0.25 fol 0.75 nat 0.25 linear 0.12)  fin 1.00  pg -0.0107  vf 0.1092  clip 0.001  6.8s
+  val @ 150: prop 0.320 (24/75), fol 0.853 (64/75), nat 0.173 (13/75), linear 0.093 (7/75), all 0.360 (108/300)
+saved out/ppochecker_s2.pt
