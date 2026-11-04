@@ -74,8 +74,14 @@ or respelled copy of a test problem never sits in the training data.
 | evaluation | `evaluate.py`, `stats.py` | any checkpoints | 2,000 test problems | greedy pass@1 (checker and Lean), sampled pass@k, paired statistics |
 
 `./run_experiment.sh` runs all of it (four arms, three seeds each) on a 4-core
-CPU in a few hours. Every long stage saves its full state every 250 steps and
-resumes exactly when rerun.
+CPU in a few hours. Pretraining, SFT and the reward model save their full state
+every 250 steps and resume exactly when rerun; a PPO or RFT run (a few minutes
+to a quarter of an hour) restarts from the beginning.
+
+**Result:** no post-training method beat SFT on 2,000 Lean-checked test
+problems; RLHF lost 1.9 points and rejection-sampling fine-tuning 2.5, PPO
+against the checker was unchanged, and more SFT gained 0.7 (not significant).
+[REPORT.md](REPORT.md) / [REPORT.pdf](REPORT.pdf) has the analysis.
 
 ## Usage
 
