@@ -1,0 +1,9 @@
+rft: 2 rounds x 1200 prompts x 4 samples = 9,600 policy samples, from out/sft.pt (sft), device cpu
+  val after round 0: prop 0.253 (19/75), fol 0.800 (60/75), nat 0.187 (14/75), linear 0.040 (3/75), all 0.320 (96/300)
+round 1: 4800 samples, 622 verified examples; yield prop 0.43 fol 0.89 nat 0.33 linear 0.42
+  fine-tuned 30 steps: loss 0.0380 (last 0.0401)
+  val after round 1: prop 0.253 (19/75), fol 0.787 (59/75), nat 0.173 (13/75), linear 0.080 (6/75), all 0.323 (97/300)
+round 2: 4800 samples, 553 verified examples; yield prop 0.42 fol 0.88 nat 0.27 linear 0.28
+  fine-tuned 26 steps: loss 0.0297 (last 0.0213)
+  val after round 2: prop 0.280 (21/75), fol 0.747 (56/75), nat 0.133 (10/75), linear 0.147 (11/75), all 0.327 (98/300)
+saved out/rft_s3.pt (9,600 policy samples)

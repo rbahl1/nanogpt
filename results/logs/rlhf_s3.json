@@ -2018,6 +2018,4626 @@
    "approx_kl": 6.728598503968897e-05,
    "value_loss": 0.1616679998114705,
    "seconds": 6.3533148765563965
+  },
+  {
+   "iteration": 46,
+   "score": -0.12471843510866165,
+   "rm_score": -0.3328014314174652,
+   "kl": 0.11187420785427094,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.75,
+    "nat": 0.1875,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.828125,
+   "examples": [
+    {
+     "prompt": "example (q s : Prop) : ¬q ∨ s ∧ s → (s ∨ q → ¬s) → ¬s :=",
+     "answer": "fun h0 h1 h2 => h1.2 ⟨Or.inr h2, h2⟩",
+     "status": "finished",
+     "score": -1.6475,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (p : Prop) : (∀ x, (∀ y, r y x) ∨ ¬p) → ¬¬p → ∀ x, ∀ y, r y x :=",
+     "answer": "fun h0 h1 x => (h0 x).elim (fun h2 => (h1 x h2).elim) (fun h2 => h2)",
+     "status": "finished",
+     "score": 0.0903,
+     "ok": false
+    },
+    {
+     "prompt": "example : (3 - 6 + 19) / 11 =",
+     "answer": "4 := by decide",
+     "status": "finished",
+     "score": -1.3213,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0007930046122055501,
+   "clip_frac": 0.00038580247201025486,
+   "k3": 0.0066560744744492695,
+   "approx_kl": 3.781233281331137e-05,
+   "value_loss": 0.12301466474309564,
+   "seconds": 7.740245580673218
+  },
+  {
+   "iteration": 47,
+   "score": 0.017415709793567657,
+   "rm_score": 0.05717968940734863,
+   "kl": 0.12282444536685944,
+   "accuracy": 0.359375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.875,
+    "nat": 0.1875,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.875,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : ¬(q ∨ (q → q)) ∨ (q → q) ∨ q :=",
+     "answer": "Or.inl (Or.inr (Or.inr (fun h0 => h0)))",
+     "status": "finished",
+     "score": -0.1217,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (b : α) : (∀ x, R b → R x) ∧ (∀ x, P x) → ∀ x, (R b → R x) ∧ P x :=",
+     "answer": "fun h0 x => ⟨h0.1 x, h0.2 x⟩",
+     "status": "finished",
+     "score": 0.413,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 * 15 - 12 + 8 =",
+     "answer": "57 := by decide",
+     "status": "finished",
+     "score": -0.926,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.002652149263667525,
+   "clip_frac": 0.00035310734529048204,
+   "k3": 0.008050356002058834,
+   "approx_kl": 4.7048304580243894e-05,
+   "value_loss": 0.11774655431509018,
+   "seconds": 5.4536542892456055
+  },
+  {
+   "iteration": 48,
+   "score": -0.019516725093126297,
+   "rm_score": -0.04415381699800491,
+   "kl": 0.03188716992735863,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.9375,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.59375,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : s ∧ (s ∨ q → r) → p → True :=",
+     "answer": "fun h0 h1 => trivial",
+     "status": "finished",
+     "score": -0.8155,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) : (∀ x, ∃ y, ¬r y x) → (∀ x, ∀ y, ¬r y x → ¬Q x) → ∀ x, ¬Q x :=",
+     "answer": "fun h0 h1 x => (h0 x).elim (h1 x)",
+     "status": "finished",
+     "score": 1.7682,
+     "ok": true
+    },
+    {
+     "prompt": "example : 16 % 14 =",
+     "answer": "3 := by decide",
+     "status": "finished",
+     "score": 0.1202,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.01281739305704832,
+   "clip_frac": 0.0009842519648373127,
+   "k3": 0.009735453932080418,
+   "approx_kl": 7.739117421579067e-05,
+   "value_loss": 0.14623768627643585,
+   "seconds": 5.770061016082764
+  },
+  {
+   "iteration": 49,
+   "score": 0.04191158711910248,
+   "rm_score": 0.12439032644033432,
+   "kl": 0.06473028659820557,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.625,
+    "nat": 0.1875,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.5625,
+   "examples": [
+    {
+     "prompt": "example (q s : Prop) : s ∧ q → (s ∨ q) ∧ q ∧ q :=",
+     "answer": "fun h0 => ⟨h0.1, Or.inl h0.2⟩",
+     "status": "finished",
+     "score": 0.1904,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) (a : α) : Q a → r a a → ∃ x, Q x ∧ r x x :=",
+     "answer": "fun _ h0 => ⟨a, h0⟩",
+     "status": "finished",
+     "score": -0.6961,
+     "ok": false
+    },
+    {
+     "prompt": "example : 18 + 7 * 5 =",
+     "answer": "143 := by decide",
+     "status": "finished",
+     "score": 1.9051,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.010167416941840202,
+   "clip_frac": 0.0006729487213306129,
+   "k3": 0.004792229781742208,
+   "approx_kl": 5.670573180793781e-05,
+   "value_loss": 0.1924519995227456,
+   "seconds": 4.9581522941589355
+  },
+  {
+   "iteration": 50,
+   "score": 0.04044231399893761,
+   "rm_score": 0.12035908550024033,
+   "kl": 0.17417870461940765,
+   "accuracy": 0.359375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.4375,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.1875
+   },
+   "answer_tokens": 24.921875,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : ¬(s ∨ ¬s ∧ s) → (s ↔ False) ∨ (s → s) :=",
+     "answer": "fun h0 => Or.inr (fun h1 => h1)",
+     "status": "finished",
+     "score": 0.4874,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (b : α) : ¬r b b ∧ (P b → R b) → (∀ x, r x x) ↔ ∀ x, ¬r b b ∧ (P b → R b) → r x x :=",
+     "answer": "⟨fun h0 x h1 => h0 h1 x, fun h0 h1 x => h0 x h0⟩",
+     "status": "finished",
+     "score": 1.0749,
+     "ok": false
+    },
+    {
+     "prompt": "example : 2 / 1 =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": 1.0331,
+     "ok": true
+    }
+   ],
+   "policy_loss": 0.0010581931273918599,
+   "clip_frac": 0.0007082380179781467,
+   "k3": 0.007456186052877456,
+   "approx_kl": 4.72255496859475e-05,
+   "value_loss": 0.13659367337822914,
+   "seconds": 6.325578927993774
+  },
+  {
+   "iteration": 51,
+   "score": 0.21549099683761597,
+   "rm_score": 0.6006494760513306,
+   "kl": 0.26874661445617676,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 21.96875,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : q ∧ r ∧ s ∧ ((s → q) ∨ s) ∨ (q → True) :=",
+     "answer": "Or.inr (Or.inr (fun h0 => h0.1.1))",
+     "status": "finished",
+     "score": 0.7217,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (r : α → α → Prop) (q : Prop) (a b : α) : (∀ x, (Q x → r x b) → q ∧ ¬R x) → (Q a → r a b) → q ∧ ¬R a :=",
+     "answer": "fun h0 => (h0 b).1",
+     "status": "finished",
+     "score": 1.3794,
+     "ok": false
+    },
+    {
+     "prompt": "example : 5 + 16 =",
+     "answer": "21 := by decide",
+     "status": "finished",
+     "score": 1.2904,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.0074249752797186375,
+   "clip_frac": 0.001399913540808484,
+   "k3": 0.008610217017121613,
+   "approx_kl": 6.490604817344092e-05,
+   "value_loss": 0.13736064452677965,
+   "seconds": 5.459336280822754
+  },
+  {
+   "iteration": 52,
+   "score": 0.005764801055192947,
+   "rm_score": 0.025212492793798447,
+   "kl": 0.31875666975975037,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.1875,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : ¬(¬(r ∧ s → p) → q → s) → ¬s ∨ ¬(¬p ∧ s) :=",
+     "answer": "by intro h0; cases (h0 (fun h1 h2 => h1)).1",
+     "status": "finished",
+     "score": 0.4446,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) : (∃ x, ∀ y, R y ∨ r x y) → ∃ x, R x ∨ r x x :=",
+     "answer": "fun ⟨x, h0⟩ => ⟨x, h0 x⟩",
+     "status": "finished",
+     "score": 1.229,
+     "ok": true
+    },
+    {
+     "prompt": "example : 19 + 15 =",
+     "answer": "42 := by decide",
+     "status": "finished",
+     "score": 1.1789,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.00166768254712224,
+   "clip_frac": 0.0009072945103980601,
+   "k3": 0.011476840591058135,
+   "approx_kl": 6.471481890457653e-05,
+   "value_loss": 0.1367687713354826,
+   "seconds": 6.503021478652954
+  },
+  {
+   "iteration": 53,
+   "score": 0.05168936401605606,
+   "rm_score": 0.1512182056903839,
+   "kl": 0.12830480933189392,
+   "accuracy": 0.34375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.6875,
+    "nat": 0.3125,
+    "linear": 0.0
+   },
+   "answer_tokens": 25.671875,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : ¬(¬(p ↔ p) ∨ ((q → p) → q ∨ q)) → q → p :=",
+     "answer": "by intro h0 h1; cases h0 (Or.inl (fun h2 => h2))",
+     "status": "finished",
+     "score": -0.6804,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (b : α) : P b → (∀ x, ¬r x x) → ∀ x, ∃ y, ¬r x y :=",
+     "answer": "fun _ h0 x => ⟨x, h0 x⟩",
+     "status": "finished",
+     "score": -0.1482,
+     "ok": true
+    },
+    {
+     "prompt": "example : 0 + (16 - 15) =",
+     "answer": "6 := by decide",
+     "status": "finished",
+     "score": 1.2206,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.01004570338409394,
+   "clip_frac": 0.0002593361132312566,
+   "k3": 0.00990240927785635,
+   "approx_kl": 5.9132255223914854e-05,
+   "value_loss": 0.1117090517655015,
+   "seconds": 6.718526840209961
+  },
+  {
+   "iteration": 54,
+   "score": 0.25316858291625977,
+   "rm_score": 0.7040276527404785,
+   "kl": 0.1991744339466095,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.140625,
+   "examples": [
+    {
+     "prompt": "example (p : Prop) : p ↔ p ∨ p :=",
+     "answer": "⟨fun h0 => Or.inr h0, fun h0 => Or.elim h0 (fun h1 => h1) (fun h1 => h1)⟩",
+     "status": "finished",
+     "score": 0.3094,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, ¬R x → R a → r x x) → ¬R b → R a → r b b :=",
+     "answer": "fun h0 => h0 b",
+     "status": "finished",
+     "score": -1.2388,
+     "ok": true
+    },
+    {
+     "prompt": "example : (5 + 4) * 13 =",
+     "answer": "96 := by decide",
+     "status": "finished",
+     "score": -1.1044,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0016100058564916253,
+   "clip_frac": 0.0007462686626240611,
+   "k3": 0.010598908527754247,
+   "approx_kl": 5.2707926926291184e-05,
+   "value_loss": 0.14370401669293642,
+   "seconds": 5.674384832382202
+  },
+  {
+   "iteration": 55,
+   "score": 0.009561628103256226,
+   "rm_score": 0.035630106925964355,
+   "kl": 0.18853119015693665,
+   "accuracy": 0.34375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.75,
+    "nat": 0.3125,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.53125,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : s → (s ∧ False → s → s) → s ∧ s :=",
+     "answer": "fun h0 h1 => ay h0",
+     "status": "finished",
+     "score": -0.0091,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (p : Prop) (b : α) : (∀ x, (Q b ∨ p) ∨ P x ↔ R x) → ∀ x, R x ↔ (Q b ∨ p) ∨ P x :=",
+     "answer": "fun h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": 0.1105,
+     "ok": true
+    },
+    {
+     "prompt": "example : 1 - 11 / 13 * 0 =",
+     "answer": "1 := by decide",
+     "status": "finished",
+     "score": -0.0985,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.003597744507715106,
+   "clip_frac": 0.0,
+   "k3": 0.01165659911930561,
+   "approx_kl": 3.106685402798348e-05,
+   "value_loss": 0.13114109635353088,
+   "seconds": 6.229498624801636
+  },
+  {
+   "iteration": 56,
+   "score": 0.059639979153871536,
+   "rm_score": 0.1730327010154724,
+   "kl": 0.11988550424575806,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.5,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.5625,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : False → (s → q) ∨ (r ∧ True → q) :=",
+     "answer": "by intro h0; trivial",
+     "status": "finished",
+     "score": 0.0724,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (a : α) : (∀ x, Q x ∧ P a → R x) → Q a ∧ P a → R a :=",
+     "answer": "fun h0 => h0",
+     "status": "finished",
+     "score": -1.3021,
+     "ok": false
+    },
+    {
+     "prompt": "example : 12 - (3 + 2) =",
+     "answer": "12 := by decide",
+     "status": "finished",
+     "score": 0.101,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0010771341621875763,
+   "clip_frac": 0.0006996323063503951,
+   "k3": 0.011733949650079012,
+   "approx_kl": 0.00011113629407918234,
+   "value_loss": 0.14316872786730528,
+   "seconds": 5.952406167984009
+  },
+  {
+   "iteration": 57,
+   "score": -0.11747699975967407,
+   "rm_score": -0.3129326105117798,
+   "kl": 0.3954547643661499,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.75,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 26.609375,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : (False → q ↔ (q → q ↔ ¬q)) → ¬q ↔ (q ↔ q) :=",
+     "answer": "⟨fun h0 => ⟨fun h1 => h1, fun h1 => h1⟩, fun h0 h1 => ⟨fun h2 => (h0 (fun h3 => h2).2 (h2 (fun h3 => h2))), fun h2 h3 => ⟨fun h4 h4 => h2, fun h2 h6 => h1 h4 (fun h3 => h3)⟩⟩⟩",
+     "status": "finished",
+     "score": -1.718,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, r a x ↔ r b x) → (∀ x, r b x ↔ R x) → ∀ x, r a x ↔ R x :=",
+     "answer": "fun h0 h1 x => ⟨fun h2 => (h1 x).1 (h2 x), fun h2 => (h0 x).2 ((h1 x).2 h2)⟩",
+     "status": "finished",
+     "score": -1.259,
+     "ok": false
+    },
+    {
+     "prompt": "example : 12 + 9 + 1 * 8 =",
+     "answer": "20 := by decide",
+     "status": "finished",
+     "score": -1.3334,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0015146872028708458,
+   "clip_frac": 0.0,
+   "k3": 0.010444909567013383,
+   "approx_kl": 2.4641979806011235e-05,
+   "value_loss": 0.11705657094717026,
+   "seconds": 9.325166463851929
+  },
+  {
+   "iteration": 58,
+   "score": 0.028189633041620255,
+   "rm_score": 0.08674073219299316,
+   "kl": 0.30746984481811523,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.625,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : (p ↔ s ∨ q → r) → True :=",
+     "answer": "fun h0 => trivial",
+     "status": "finished",
+     "score": -1.456,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, ¬r x b → R x) → ¬r a b → R a :=",
+     "answer": "fun h0 => h0 a",
+     "status": "finished",
+     "score": -1.7878,
+     "ok": true
+    },
+    {
+     "prompt": "example : (4 + 6) * 1 * 10 =",
+     "answer": "124 := by decide",
+     "status": "finished",
+     "score": 1.5961,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.009175363353278954,
+   "clip_frac": 0.0009524259658064693,
+   "k3": 0.007983073446666822,
+   "approx_kl": 9.400457602737535e-05,
+   "value_loss": 0.1086417194455862,
+   "seconds": 5.871703147888184
+  },
+  {
+   "iteration": 59,
+   "score": -0.016591906547546387,
+   "rm_score": -0.03612881898880005,
+   "kl": 0.11846482753753662,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.6875,
+    "nat": 0.0,
+    "linear": 0.25
+   },
+   "answer_tokens": 22.21875,
+   "examples": [
+    {
+     "prompt": "example (r : Prop) : (r → ¬r) → r → r :=",
+     "answer": "fun h0 h1 => h0",
+     "status": "finished",
+     "score": -0.0021,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (a : α) : Q a → ∀ x, (R x ∨ ¬P x) ∨ Q a :=",
+     "answer": "fun h0 _ => Or.inr h0",
+     "status": "finished",
+     "score": 0.3109,
+     "ok": true
+    },
+    {
+     "prompt": "example : (5 + 10) * 12 =",
+     "answer": "130 := by decide",
+     "status": "finished",
+     "score": -0.0247,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0007256808457896113,
+   "clip_frac": 0.0010499272029846907,
+   "k3": 0.007871421927120537,
+   "approx_kl": 0.00014377337288351555,
+   "value_loss": 0.15928527247160673,
+   "seconds": 5.039181709289551
+  },
+  {
+   "iteration": 60,
+   "score": 0.12810581922531128,
+   "rm_score": 0.3608860969543457,
+   "kl": 0.12548798322677612,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.1875,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.828125,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : q ∧ s → ¬(q ∧ r) → q → q :=",
+     "answer": "fun h0 h1 h2 => h2.1",
+     "status": "finished",
+     "score": -0.5399,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (b : α) : (∀ x, (Q x ∧ R b) ∧ R x) → ∀ x, R x :=",
+     "answer": "fun h0 x => (h0 x).2",
+     "status": "finished",
+     "score": 0.8708,
+     "ok": true
+    },
+    {
+     "prompt": "example : 9 + 1 =",
+     "answer": "9 := by decide",
+     "status": "finished",
+     "score": 0.3326,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.014250196050852537,
+   "clip_frac": 0.00034340660204179585,
+   "k3": 0.006131565460236743,
+   "approx_kl": 4.472897575169554e-05,
+   "value_loss": 0.14442993141710758,
+   "seconds": 6.04183292388916
+  },
+  {
+   "iteration": 61,
+   "score": -0.017329111695289612,
+   "rm_score": -0.03815153241157532,
+   "kl": 0.12029418349266052,
+   "accuracy": 0.1875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.5,
+    "nat": 0.1875,
+    "linear": 0.0
+   },
+   "answer_tokens": 24.703125,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : (q → (s ↔ s)) → (r → p → p) → True ∨ r :=",
+     "answer": "fun h0 h1 => Or.inr (h1 trivial)",
+     "status": "finished",
+     "score": 0.7318,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (b : α) : (∃ x, P b ∧ R x) → P b ∧ ∃ x, R x :=",
+     "answer": "fun ⟨x, h0, h1⟩ => ⟨h0, x, h1⟩",
+     "status": "finished",
+     "score": 0.3735,
+     "ok": true
+    },
+    {
+     "prompt": "example : 18 * (18 * 3 - 14) =",
+     "answer": "522 := by decide",
+     "status": "finished",
+     "score": -0.9946,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.010616878746077418,
+   "clip_frac": 0.0003602305368985981,
+   "k3": 0.005308333726134151,
+   "approx_kl": 5.601192295046076e-05,
+   "value_loss": 0.14464536681771278,
+   "seconds": 6.2470245361328125
+  },
+  {
+   "iteration": 62,
+   "score": 0.051923058927059174,
+   "rm_score": 0.1518593430519104,
+   "kl": 0.2657301127910614,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.4375,
+    "fol": 0.8125,
+    "nat": 0.0,
+    "linear": 0.0
+   },
+   "answer_tokens": 24.1875,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : (r ∨ q ∨ s) ∧ r → q → False → s :=",
+     "answer": "by intro h0 h1 h2; cases h2 (Or.inr h2)",
+     "status": "finished",
+     "score": -1.2598,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) : ¬¬¬(∀ x, ∀ y, ¬r x y) → ¬∀ x, ∀ y, ¬r x y :=",
+     "answer": "fun h0 h1 => h0 (fun h2 => h2 h1)",
+     "status": "finished",
+     "score": 1.4147,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 - 2 =",
+     "answer": "0 := by decide",
+     "status": "finished",
+     "score": 1.0687,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.015698373783379793,
+   "clip_frac": 0.0006836313114035875,
+   "k3": 0.007367375481408089,
+   "approx_kl": 4.583906192578979e-05,
+   "value_loss": 0.12001633644104004,
+   "seconds": 6.475284814834595
+  },
+  {
+   "iteration": 63,
+   "score": -0.09481383115053177,
+   "rm_score": -0.25075051188468933,
+   "kl": 0.1785150170326233,
+   "accuracy": 0.203125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.5,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.8125,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : False → ¬((¬p ∧ q) ∧ ¬s) :=",
+     "answer": "fun h0 h1 => h0",
+     "status": "finished",
+     "score": -0.1595,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (p : Prop) : ∀ x, (∀ y, (¬R y → p) → ∀ z, r z x) → (¬R x → p) → ∃ y, ∀ z, r z y :=",
+     "answer": "fun _ x h0 => (h0 x).1",
+     "status": "finished",
+     "score": -1.6397,
+     "ok": false
+    },
+    {
+     "prompt": "example : 15 * 6 =",
+     "answer": "52 := by decide",
+     "status": "finished",
+     "score": -0.5849,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.01199100911617279,
+   "clip_frac": 0.000327225134242326,
+   "k3": 0.007146180665586144,
+   "approx_kl": 6.219132735196808e-05,
+   "value_loss": 0.1320008048787713,
+   "seconds": 4.882066488265991
+  },
+  {
+   "iteration": 64,
+   "score": -0.37231287360191345,
+   "rm_score": -0.8541479110717773,
+   "kl": 0.22131869196891785,
+   "accuracy": 0.265625,
+   "finished": 0.984375,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 27.828125,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : (s → s ∨ s) ∨ (s ∨ s ↔ s) :=",
+     "answer": "Or.inl ⟨fun h0 => Or.inl h0, fun h0 => Or.elim h0 (fun h1 => Or.inr h1) (fun h1 => Or.inr h1)⟩",
+     "status": "finished",
+     "score": -1.4107,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) : (∀ x, r x x → ¬P x) → (∀ x, r x x) → ∀ x, ¬P x :=",
+     "answer": "fun h0 h1 x => h0 x (h1 x)",
+     "status": "finished",
+     "score": -0.2243,
+     "ok": true
+    },
+    {
+     "prompt": "example : 9 * 16 / 5 =",
+     "answer": "79 := by decide",
+     "status": "finished",
+     "score": -1.722,
+     "ok": false
+    }
+   ],
+   "policy_loss": -2.50241719186306e-05,
+   "clip_frac": 0.000645994849037379,
+   "k3": 0.011477380874566734,
+   "approx_kl": 9.142302147324699e-05,
+   "value_loss": 0.14701326005160809,
+   "seconds": 6.0490546226501465
+  },
+  {
+   "iteration": 65,
+   "score": 0.00031744688749313354,
+   "rm_score": 0.010266304016113281,
+   "kl": 0.3676496744155884,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.5625,
+    "nat": 0.1875,
+    "linear": 0.0
+   },
+   "answer_tokens": 26.203125,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : ¬((p ∨ ¬(¬q ↔ ¬q)) ∧ (¬(r → p) ↔ p)) :=",
+     "answer": "fun h0 => h0.1.2 (h0.2.2 (Or.inl (fun h1 => h0.2 (fun h1 => h0.2 h1 h1))) (h0.2.2.1 (h0.1.1.2 (fun h1 => h0.2 h1 h2))))",
+     "status": "finished",
+     "score": 0.7119,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) : (∀ x, ∀ y, r y x → Q x) → (∃ x, ∃ y, r y x) → ∃ x, Q x :=",
+     "answer": "fun h0 ⟨x, y, h1⟩ => ⟨x, h0 x y h1⟩",
+     "status": "finished",
+     "score": 0.609,
+     "ok": true
+    },
+    {
+     "prompt": "example : 8 * (1 + 8) =",
+     "answer": "30 := by decide",
+     "status": "finished",
+     "score": 1.1736,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.028729536570608616,
+   "clip_frac": 0.0003955696302000433,
+   "k3": 0.011654019239358604,
+   "approx_kl": 5.1671771743144745e-05,
+   "value_loss": 0.14649874810129404,
+   "seconds": 6.724198818206787
+  },
+  {
+   "iteration": 66,
+   "score": 0.1076400876045227,
+   "rm_score": 0.3047332167625427,
+   "kl": 0.2962653338909149,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 23.875,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : ¬((q → s) → ¬((r ↔ r) ∨ ¬s)) ∨ (q → q) :=",
+     "answer": "Or.inl (fun h0 => h0)",
+     "status": "finished",
+     "score": 0.7762,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (b : α) : (∀ x, P x ∨ ¬R x) → ¬P b → ¬R b :=",
+     "answer": "fun h0 h1 h2 => (h0 b).elim h1 (fun h2 => h3 h2)",
+     "status": "finished",
+     "score": 1.0767,
+     "ok": false
+    },
+    {
+     "prompt": "example : 15 - 4 =",
+     "answer": "1> (h2 := by decide",
+     "status": "finished",
+     "score": -1.7308,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.005043364129960537,
+   "clip_frac": 0.0,
+   "k3": 0.011029248416889459,
+   "approx_kl": 3.63381765282611e-05,
+   "value_loss": 0.1396327205002308,
+   "seconds": 6.239552736282349
+  },
+  {
+   "iteration": 67,
+   "score": -0.027896251529455185,
+   "rm_score": -0.06714518368244171,
+   "kl": 0.5656799077987671,
+   "accuracy": 0.265625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 25.3125,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : ¬(s ∨ p) → s → r ∧ s :=",
+     "answer": "by intro h0 h1; cases h0 (Or.inl (fun h2 => h2.1))",
+     "status": "finished",
+     "score": -1.1869,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (b : α) : (∀ x, P x ∨ R b) ∨ (∀ x, Q x) → ∀ x, (P x ∨ R b) ∨ Q x :=",
+     "answer": "fun h0 x => h0.elim (fun h1 => Or.inl (Or.inr h1)) (fun h1 => Or.inr (Or.inr h1))",
+     "status": "finished",
+     "score": 1.443,
+     "ok": false
+    },
+    {
+     "prompt": "example : (18 / 8 + 9) / 7 =",
+     "answer": "6 := by decide",
+     "status": "finished",
+     "score": -0.906,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.007660341099835932,
+   "clip_frac": 0.0005804870743304491,
+   "k3": 0.012687224196270108,
+   "approx_kl": 7.23152104344655e-05,
+   "value_loss": 0.10810993611812592,
+   "seconds": 6.5900559425354
+  },
+  {
+   "iteration": 68,
+   "score": 0.015050876885652542,
+   "rm_score": 0.05069119483232498,
+   "kl": 0.41877543926239014,
+   "accuracy": 0.265625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 23.640625,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : (¬(r ∨ s) ∨ ¬(p ∨ q)) ∨ ((s → s ↔ s) ↔ s) :=",
+     "answer": "Or.inr ⟨fun h0 => Or.inl h0.2, fun h0 => Or.inr ⟨fun h1 => Or.elim h1 (fun h2 => h2) (fun h2 => h2), fun h1 => h1⟩⟩",
+     "status": "finished",
+     "score": -1.6257,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (p : Prop) : (∀ x, p → R x ↔ ¬r x x) → ∀ x, ¬r x x ↔ p → R x :=",
+     "answer": "fun h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": 0.981,
+     "ok": true
+    },
+    {
+     "prompt": "example : 20 * 10 =",
+     "answer": "120 := by decide",
+     "status": "finished",
+     "score": 0.6038,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.009317582240328193,
+   "clip_frac": 0.0,
+   "k3": 0.010017726279329509,
+   "approx_kl": 2.1284893474415867e-05,
+   "value_loss": 0.1274871863424778,
+   "seconds": 6.507523536682129
+  },
+  {
+   "iteration": 69,
+   "score": 0.12640565633773804,
+   "rm_score": 0.35622134804725647,
+   "kl": 0.2591162323951721,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.0,
+    "linear": 0.125
+   },
+   "answer_tokens": 20.90625,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : ¬(r → ((q → q) ∧ p) ∧ ¬p) → False → p :=",
+     "answer": "by intro h0 h1; cases h1 (fun h2 => h2)",
+     "status": "finished",
+     "score": -0.86,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (q : Prop) (b : α) : (∃ x, ¬((q → R x) → ¬r b x)) → ¬∀ x, (q → R x) → ¬r b x :=",
+     "answer": "fun ⟨x, h0, h1⟩ h2 => h2 x h0 h1",
+     "status": "finished",
+     "score": -0.8717,
+     "ok": false
+    },
+    {
+     "prompt": "example : 17 - 15 =",
+     "answer": "0 := by decide",
+     "status": "finished",
+     "score": -0.0338,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.004794744774699211,
+   "clip_frac": 0.0011241027677897364,
+   "k3": 0.022022840625140816,
+   "approx_kl": 6.762037995144965e-05,
+   "value_loss": 0.2217196300625801,
+   "seconds": 4.929649591445923
+  },
+  {
+   "iteration": 70,
+   "score": 0.029811546206474304,
+   "rm_score": 0.09119090437889099,
+   "kl": 0.4635818600654602,
+   "accuracy": 0.265625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0
+   },
+   "answer_tokens": 26.546875,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : False ∧ s → (False ↔ ¬s) :=",
+     "answer": "fun h0 => ⟨fun h1 => h1, fun h1 h2 => h2 h1⟩",
+     "status": "finished",
+     "score": 1.2354,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (b : α) : (∀ x, r b x) → r b b :=",
+     "answer": "fun h0 => h0 b",
+     "status": "finished",
+     "score": -1.8059,
+     "ok": true
+    },
+    {
+     "prompt": "example : 9 * 18 - 1 =",
+     "answer": "84 := by decide",
+     "status": "finished",
+     "score": -0.943,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.01776446122676134,
+   "clip_frac": 0.00043478261795826256,
+   "k3": 0.017445484292693436,
+   "approx_kl": 5.532147600112114e-05,
+   "value_loss": 0.1649635238572955,
+   "seconds": 7.631449937820435
+  },
+  {
+   "iteration": 71,
+   "score": 0.11863288283348083,
+   "rm_score": 0.33489474654197693,
+   "kl": 0.2910422682762146,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.875,
+    "nat": 0.1875,
+    "linear": 0.0625
+   },
+   "answer_tokens": 27.03125,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : s → s ↔ s ∧ s → s :=",
+     "answer": "⟨fun h0 h1 => h1, fun h0 h1 => h1⟩",
+     "status": "finished",
+     "score": -0.4599,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (p q : Prop) (a : α) : (∃ x, ¬q ∨ P a → p → ¬Q x) → ¬q ∨ P a → ∃ x, p → ¬Q x :=",
+     "answer": "fun ⟨x, h0⟩ h1 => ⟨x, h0 h1⟩",
+     "status": "finished",
+     "score": 0.6815,
+     "ok": true
+    },
+    {
+     "prompt": "example : 2 + 13 - 5 =",
+     "answer": "6 := by decide",
+     "status": "finished",
+     "score": -1.5927,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.04224290885031223,
+   "clip_frac": 0.0003561253543011844,
+   "k3": 0.009403719217516482,
+   "approx_kl": 2.962783195702117e-05,
+   "value_loss": 0.09436092991381884,
+   "seconds": 7.194223880767822
+  },
+  {
+   "iteration": 72,
+   "score": 0.052761729806661606,
+   "rm_score": 0.1541605293750763,
+   "kl": 0.2388952225446701,
+   "accuracy": 0.421875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 1.0,
+    "nat": 0.125,
+    "linear": 0.25
+   },
+   "answer_tokens": 21.828125,
+   "examples": [
+    {
+     "prompt": "example (q r : Prop) : ¬q → ¬((q ∨ q) ∧ (¬q → r)) :=",
+     "answer": "fun h0 h1 => h1.1 (Or.inr h0)",
+     "status": "finished",
+     "score": 1.4688,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (q : Prop) (a b : α) : (∀ x, P a ∨ r x x → q) → (q → R b) → ∀ x, P a ∨ r x x → R b :=",
+     "answer": "fun h0 h1 x h2 => h1 (h0 x h2)",
+     "status": "finished",
+     "score": -0.1706,
+     "ok": true
+    },
+    {
+     "prompt": "example : (4 + 17) * 16 =",
+     "answer": "311 := by decide",
+     "status": "finished",
+     "score": -0.2257,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.004159800475463271,
+   "clip_frac": 0.0007464344380423427,
+   "k3": 0.009537083562463522,
+   "approx_kl": 5.2776854694513986e-05,
+   "value_loss": 0.15848756302148104,
+   "seconds": 5.477530002593994
+  },
+  {
+   "iteration": 73,
+   "score": 0.036879509687423706,
+   "rm_score": 0.1105836033821106,
+   "kl": 0.5017361640930176,
+   "accuracy": 0.359375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.8125,
+    "nat": 0.1875,
+    "linear": 0.125
+   },
+   "answer_tokens": 27.078125,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : q → r → q ∨ ¬(s ∧ s) :=",
+     "answer": "fun h0 h1 => Or.inr h1.2",
+     "status": "finished",
+     "score": 1.4221,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (q : Prop) (a : α) : (P a ∧ q → ∀ x, R x) → ∀ x, P a ∧ q → R x :=",
+     "answer": "fun h0 x h1 => h0 h1 x",
+     "status": "finished",
+     "score": 0.9805,
+     "ok": true
+    },
+    {
+     "prompt": "example : 18 + 15 =",
+     "answer": "38 := by decide",
+     "status": "finished",
+     "score": 1.3453,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.01168173085898161,
+   "clip_frac": 0.0006938670412637293,
+   "k3": 0.012965555652044713,
+   "approx_kl": 5.86991891253795e-05,
+   "value_loss": 0.08320710761472583,
+   "seconds": 6.095168352127075
+  },
+  {
+   "iteration": 74,
+   "score": -0.005090951919555664,
+   "rm_score": -0.004573032259941101,
+   "kl": 0.18997108936309814,
+   "accuracy": 0.21875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.625,
+    "nat": 0.1875,
+    "linear": 0.0
+   },
+   "answer_tokens": 24.84375,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : p ∨ (r ∧ (r → q) → q) :=",
+     "answer": "Or.inr (fun h0 => h0.1)",
+     "status": "finished",
+     "score": -0.2573,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (a : α) : (∀ x, ¬r x x ∨ ¬P a) → ¬r a a ∨ ¬P a :=",
+     "answer": "fun h0 => h0 a",
+     "status": "finished",
+     "score": -0.1805,
+     "ok": true
+    },
+    {
+     "prompt": "example : 6 * (10 + 17 * 19) =",
+     "answer": "0580 := by decide",
+     "status": "finished",
+     "score": -0.8794,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.022708337055519223,
+   "clip_frac": 0.002117601645295508,
+   "k3": 0.010064429632620886,
+   "approx_kl": 0.0002193671593318583,
+   "value_loss": 0.11498312465846539,
+   "seconds": 8.789227485656738
+  },
+  {
+   "iteration": 75,
+   "score": -0.030216235667467117,
+   "rm_score": -0.07351057231426239,
+   "kl": 0.25043985247612,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.5625,
+    "nat": 0.1875,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.34375,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : ((p ∨ p) ∧ q ∧ q) ∧ p → (s → q) → p :=",
+     "answer": "fun h0 h1 => h0.1.2",
+     "status": "finished",
+     "score": -1.2583,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, P b → Q x ↔ r x a) → ∀ x, r x a ↔ P b → Q x :=",
+     "answer": "fun h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": 0.9372,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 + 10 =",
+     "answer": "19 := by decide",
+     "status": "finished",
+     "score": 1.255,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.009545179083943367,
+   "clip_frac": 0.001191716524772346,
+   "k3": 0.006395582546247169,
+   "approx_kl": 9.481534141410031e-05,
+   "value_loss": 0.11294651590287685,
+   "seconds": 5.073229074478149
+  },
+  {
+   "iteration": 76,
+   "score": -0.3322989046573639,
+   "rm_score": -0.9023512601852417,
+   "kl": 0.2765245735645294,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.875,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.84375,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : p ∧ (p → p) → s → s :=",
+     "answer": "fun h0 h1 => h1",
+     "status": "finished",
+     "score": 0.1556,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) (a b : α) : Q b → (∃ x, ∃ y, Q a ∧ True → r x y) → ∃ x, ∃ y, Q a ∧ True → r y x :=",
+     "answer": "fun _ ⟨x, y, h0⟩ => ⟨y, x, h0⟩",
+     "status": "finished",
+     "score": -0.7173,
+     "ok": true
+    },
+    {
+     "prompt": "example : 18 / (17 - 11) =",
+     "answer": "8 := by decide",
+     "status": "finished",
+     "score": -1.6951,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0020088106393814087,
+   "clip_frac": 0.0006248088029678911,
+   "k3": 0.007833540992578492,
+   "approx_kl": 5.0969622847674145e-05,
+   "value_loss": 0.12975009670481086,
+   "seconds": 5.588966131210327
+  },
+  {
+   "iteration": 77,
+   "score": 0.22705499827861786,
+   "rm_score": 0.632378339767456,
+   "kl": 0.17016036808490753,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.8125,
+    "nat": 0.25,
+    "linear": 0.125
+   },
+   "answer_tokens": 25.359375,
+   "examples": [
+    {
+     "prompt": "example (q s : Prop) : q ∧ ¬(s → s) → ¬((s ↔ q) ∧ (q ∨ q)) :=",
+     "answer": "fun h0 h1 => h1.1 h1.1",
+     "status": "finished",
+     "score": -1.3957,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (a : α) : (∀ x, Q x) ∨ R a ∨ ¬P a → ∀ x, Q x ∨ R a ∨ ¬P a :=",
+     "answer": "fun h0 x => h0 x x",
+     "status": "finished",
+     "score": 1.3207,
+     "ok": false
+    },
+    {
+     "prompt": "example : 6 - 19 =",
+     "answer": "0 := by decide",
+     "status": "finished",
+     "score": 1.0313,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.0038880296051502228,
+   "clip_frac": 0.0005336879112292081,
+   "k3": 0.007901205273810774,
+   "approx_kl": 3.649187426191432e-05,
+   "value_loss": 0.1631116196513176,
+   "seconds": 6.167588233947754
+  },
+  {
+   "iteration": 78,
+   "score": -0.011558525264263153,
+   "rm_score": -0.02231849730014801,
+   "kl": 0.35861772298812866,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.6875,
+    "nat": 0.25,
+    "linear": 0.25
+   },
+   "answer_tokens": 22.75,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : s → (p ↔ (s ↔ p)) :=",
+     "answer": "fun h0 => ⟨fun h1 h2 => h0, fun h1 => h1⟩",
+     "status": "finished",
+     "score": -0.9332,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (b : α) : (∀ x, P x → R b ∧ r x x → Q x) → ∀ x, P x ∧ R b ∧ r x x → Q x :=",
+     "answer": "fun h0 x h1 => h0 x h1.1 h1.2",
+     "status": "finished",
+     "score": 0.7467,
+     "ok": true
+    },
+    {
+     "prompt": "example : 19 * 15 =",
+     "answer": "366 := by decide",
+     "status": "finished",
+     "score": 1.3937,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.004075218108482659,
+   "clip_frac": 0.0007246377062983811,
+   "k3": 0.009206090267980471,
+   "approx_kl": 5.792607682053824e-05,
+   "value_loss": 0.14138015964999795,
+   "seconds": 5.136437654495239
+  },
+  {
+   "iteration": 79,
+   "score": -0.22024840116500854,
+   "rm_score": -0.5949121117591858,
+   "kl": 0.22250613570213318,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.84375,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : (s ∨ ((¬s ↔ ¬s) ∨ s) ∨ s) ∨ (s → ¬s) :=",
+     "answer": "Or.inr (Or.inl (Or.inr (fun h0 => h0)))",
+     "status": "finished",
+     "score": -0.7013,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (a : α) : ¬(∀ x, ¬(Q a ∧ P x ∨ R x)) → ¬¬∃ x, Q a ∧ P x ∨ R x :=",
+     "answer": "fun h0 h1 => h1.elim h0",
+     "status": "finished",
+     "score": 0.1449,
+     "ok": false
+    },
+    {
+     "prompt": "example : 8 - 4 + 10 =",
+     "answer": "9 := by decide",
+     "status": "finished",
+     "score": -0.2016,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.005840828758664429,
+   "clip_frac": 0.000808197190053761,
+   "k3": 0.00572191207902506,
+   "approx_kl": 7.046929629694887e-05,
+   "value_loss": 0.09719262085855007,
+   "seconds": 6.249192237854004
+  },
+  {
+   "iteration": 80,
+   "score": -0.012309674173593521,
+   "rm_score": -0.02437940239906311,
+   "kl": 0.22713840007781982,
+   "accuracy": 0.359375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.9375,
+    "nat": 0.1875,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.25,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : s → (s ↔ (s → s) ∨ s ∧ s) :=",
+     "answer": "fun h0 => ⟨fun h1 => Or.inl h0, fun h1 => Or.inl h1⟩",
+     "status": "finished",
+     "score": -0.3942,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) : (∀ x, ∀ y, r x y → ¬Q x) → (∃ x, ∃ y, r x y) → ∃ x, ¬Q x :=",
+     "answer": "fun h0 ⟨x, y, h1⟩ => ⟨x, h0 x y h1⟩",
+     "status": "finished",
+     "score": 0.4692,
+     "ok": true
+    },
+    {
+     "prompt": "example : 8 + 2 =",
+     "answer": "10 := by decide",
+     "status": "finished",
+     "score": 0.924,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.008484924212098122,
+   "clip_frac": 0.0009791122283786535,
+   "k3": 0.007644027267815545,
+   "approx_kl": 7.671714959657405e-05,
+   "value_loss": 0.09515354922041297,
+   "seconds": 5.907035827636719
+  },
+  {
+   "iteration": 81,
+   "score": -0.13637393712997437,
+   "rm_score": -0.3647812604904175,
+   "kl": 0.06103881821036339,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 24.53125,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : (s → s) → ¬(¬(p → p) ↔ q) → ¬(¬s ∧ s) :=",
+     "answer": "fun h0 h1 h2 => h2.2 h2.1",
+     "status": "finished",
+     "score": -0.8923,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) : (∀ x, (∃ y, ¬r y x) ∨ P x) → ∀ x, P x ∨ ∃ y, ¬r y x :=",
+     "answer": "fun h0 x => (h0 x).elim (fun h1 => Or.inr h1) (fun h1 => Or.inl h1)",
+     "status": "finished",
+     "score": -0.4759,
+     "ok": true
+    },
+    {
+     "prompt": "example : 15 - (7 - 0) =",
+     "answer": "6 := by decide",
+     "status": "finished",
+     "score": -1.5371,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.024342721793800592,
+   "clip_frac": 0.0005518763791769743,
+   "k3": 0.00966602744301781,
+   "approx_kl": 5.637083612342053e-05,
+   "value_loss": 0.1342318318784237,
+   "seconds": 6.720242738723755
+  },
+  {
+   "iteration": 82,
+   "score": -0.09584733098745346,
+   "rm_score": -0.25358614325523376,
+   "kl": 0.3206804692745209,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.6875,
+    "nat": 0.0,
+    "linear": 0.125
+   },
+   "answer_tokens": 24.171875,
+   "examples": [
+    {
+     "prompt": "example (p r : Prop) : p ∧ p ∨ r ↔ p ∨ r :=",
+     "answer": "⟨fun h0 => Or.inl (Or.elim h0 (fun h1 => h1.1) (fun h1 => Or.inl h1)), fun h0 => Or.inl h0.1⟩",
+     "status": "finished",
+     "score": -0.7597,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (a b : α) : (∃ x, (R b → P x) ∧ ¬r a x) → ∃ x, ¬r a x :=",
+     "answer": "fun ⟨x, h0⟩ => ⟨x, h0.2⟩",
+     "status": "finished",
+     "score": 0.7289,
+     "ok": true
+    },
+    {
+     "prompt": "example : (14 - 7) / 2 =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": -1.0547,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0033451078925281763,
+   "clip_frac": 0.000369822490029037,
+   "k3": 0.010808696621097624,
+   "approx_kl": 0.00012991837218123692,
+   "value_loss": 0.15724768210202456,
+   "seconds": 6.672928333282471
+  },
+  {
+   "iteration": 83,
+   "score": 0.047196660190820694,
+   "rm_score": 0.13889136910438538,
+   "kl": 0.23295551538467407,
+   "accuracy": 0.40625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.4375,
+    "fol": 0.8125,
+    "nat": 0.1875,
+    "linear": 0.1875
+   },
+   "answer_tokens": 25.515625,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : ¬((q → q) → q) ∨ (q → q) ∨ (q ↔ q → q) :=",
+     "answer": "Or.inr (fun h0 => h0)",
+     "status": "finished",
+     "score": -0.2319,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (q : Prop) : (∃ x, Q x) → q ↔ ∀ x, Q x → q :=",
+     "answer": "⟨fun h0 h1 => h1.elim h0, fun h0 x h1 => h0 h1 h1⟩",
+     "status": "finished",
+     "score": -1.3867,
+     "ok": false
+    },
+    {
+     "prompt": "example : 20 - 18 =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": 0.3158,
+     "ok": true
+    }
+   ],
+   "policy_loss": 0.001274509821087122,
+   "clip_frac": 0.00035816620220430195,
+   "k3": 0.008138721284922212,
+   "approx_kl": 3.842736457482232e-05,
+   "value_loss": 0.11305909417569637,
+   "seconds": 5.931413650512695
+  },
+  {
+   "iteration": 84,
+   "score": 0.2018347978591919,
+   "rm_score": 0.5631802082061768,
+   "kl": 0.23842012882232666,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.625,
+    "nat": 0.1875,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.5,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : ¬(r ∧ ¬(r ∧ q)) → p ∨ (False → q) :=",
+     "answer": "fun h0 => Or.inr (fun h1 => h1 h1.1.2)",
+     "status": "finished",
+     "score": 1.8837,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (a : α) : Q a → (∀ x, ¬R x → P x) → (∀ x, P x → r x x) → ∀ x, ¬R x → r x x :=",
+     "answer": "fun _ h0 h1 x => h0 x ).fun h1 x => (h1 x)",
+     "status": "finished",
+     "score": -1.0016,
+     "ok": false
+    },
+    {
+     "prompt": "example : 15 * (19 * 19) =",
+     "answer": "4160 := by decide",
+     "status": "finished",
+     "score": -1.1,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.019221126101911068,
+   "clip_frac": 0.0013845249777659774,
+   "k3": 0.01404616015497595,
+   "approx_kl": 8.261391184305467e-05,
+   "value_loss": 0.12131016794592142,
+   "seconds": 6.77849268913269
+  },
+  {
+   "iteration": 85,
+   "score": 0.020911481231451035,
+   "rm_score": 0.06677126884460449,
+   "kl": 0.08233793824911118,
+   "accuracy": 0.390625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.875,
+    "nat": 0.3125,
+    "linear": 0.25
+   },
+   "answer_tokens": 27.03125,
+   "examples": [
+    {
+     "prompt": "example (p r : Prop) : ¬(¬r ↔ r) ↔ ¬(p ∧ r) → r → r :=",
+     "answer": "⟨fun h0 h1 => h0.2, fun h0 => ⟨h0 (fun h1 => h1) (fun h1 => h1), Or.elim (h0 (fun h1 => h1.2) (fun h2 => h2)), fun h1 => False.elim (h1 (fun h2 => h2))⟩⟩⟩",
+     "status": "finished",
+     "score": -1.0915,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (p : Prop) (a : α) : (∃ x, (R x → P a) ∧ ¬r x x) → (∀ x, (R x → P a) ∧ ¬r x x → ¬p) → ¬p :=",
+     "answer": "fun h0 h1 => h1 a (h0 a)",
+     "status": "finished",
+     "score": -0.3611,
+     "ok": false
+    },
+    {
+     "prompt": "example : 3 * (8 - 1) =",
+     "answer": "1 := by decide",
+     "status": "finished",
+     "score": -0.2819,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.005813068288262002,
+   "clip_frac": 0.00022007041843608022,
+   "k3": 0.015382019570097327,
+   "approx_kl": 4.471134577244129e-05,
+   "value_loss": 0.14049467165023088,
+   "seconds": 7.964796543121338
+  },
+  {
+   "iteration": 86,
+   "score": -0.028789237141609192,
+   "rm_score": -0.06959526240825653,
+   "kl": 0.23632515966892242,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.6875,
+    "nat": 0.0,
+    "linear": 0.0625
+   },
+   "answer_tokens": 27.9375,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : s ∧ ¬(s → s) ∧ s → s :=",
+     "answer": "fun h0 => h0.1",
+     "status": "finished",
+     "score": -0.2497,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (b : α) : R b → ∀ x, (∀ y, r x y) ∨ R b :=",
+     "answer": "fun h0 _ => Or.inr h0",
+     "status": "finished",
+     "score": 0.0789,
+     "ok": true
+    },
+    {
+     "prompt": "example : 2 % (16 + (11 + 17)) =",
+     "answer": "16 := by decide",
+     "status": "finished",
+     "score": -0.5892,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.017579067251062952,
+   "clip_frac": 0.0006498476141132414,
+   "k3": 0.009519767016172409,
+   "approx_kl": 4.8246824150055545e-05,
+   "value_loss": 0.09609586372971535,
+   "seconds": 9.45419955253601
+  },
+  {
+   "iteration": 87,
+   "score": 0.12925921380519867,
+   "rm_score": 0.3640507459640503,
+   "kl": 0.2979099452495575,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.8125,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.65625,
+   "examples": [
+    {
+     "prompt": "example (q r : Prop) : ¬q ∨ (r ↔ r ∨ r) :=",
+     "answer": "Or.inr ⟨fun h0 => Or.elim h0 (fun h1 => h1.1 (fun h2 => h2)) (fun h1 => h1), fun h0 => Or.inl (fun h1 => Or.inl h1)⟩",
+     "status": "finished",
+     "score": -1.7288,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (p : Prop) : (∀ x, p → R x) → ∀ x, ¬¬(p → R x) :=",
+     "answer": "fun h0 x h1 => h1 (h0 x)",
+     "status": "finished",
+     "score": 0.9366,
+     "ok": true
+    },
+    {
+     "prompt": "example : 13 + (15 - 10) =",
+     "answer": "21 := by decide",
+     "status": "finished",
+     "score": 0.3396,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.008020102046430111,
+   "clip_frac": 0.0010588069562800229,
+   "k3": 0.010788831510581076,
+   "approx_kl": 0.00014584417822760543,
+   "value_loss": 0.09361675893887877,
+   "seconds": 6.562723159790039
+  },
+  {
+   "iteration": 88,
+   "score": 0.15387529134750366,
+   "rm_score": 0.431591272354126,
+   "kl": 0.348173052072525,
+   "accuracy": 0.265625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.75,
+    "nat": 0.0,
+    "linear": 0.125
+   },
+   "answer_tokens": 25.21875,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : (p → p → p) ∨ s :=",
+     "answer": "Or.inl (fun h0 h1 => h0)",
+     "status": "finished",
+     "score": 0.8774,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) : (∀ x, ∀ y, r y x → r x y) → ∀ x, ∀ y, r y x ↔ r x y :=",
+     "answer": "fun h0 x y => ⟨h0 x y, h0 y x⟩",
+     "status": "finished",
+     "score": -1.1555,
+     "ok": true
+    },
+    {
+     "prompt": "example : 2 * 5 =",
+     "answer": "23 := by decide",
+     "status": "finished",
+     "score": 1.2573,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.006209667073562741,
+   "clip_frac": 0.00028604117687791586,
+   "k3": 0.012469501642044634,
+   "approx_kl": 6.415924090674707e-05,
+   "value_loss": 0.1418704940006137,
+   "seconds": 5.768524646759033
+  },
+  {
+   "iteration": 89,
+   "score": 0.21837764978408813,
+   "rm_score": 0.608569860458374,
+   "kl": 0.36205345392227173,
+   "accuracy": 0.21875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.625,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.53125,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : (s ∨ s → s) ∨ ((s → s ∨ s ↔ s) → s) :=",
+     "answer": "Or.inr (fun h0 => h0)",
+     "status": "finished",
+     "score": -0.5257,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (p : Prop) (a : α) : (P a → p) → (∀ x, ∀ y, ¬r y x ∨ P a) → ∀ x, ¬r x x ∨ P a :=",
+     "answer": "fun _ h0 x => h0 x x",
+     "status": "finished",
+     "score": 0.4588,
+     "ok": true
+    },
+    {
+     "prompt": "example : 17 % 11 =",
+     "answer": "1 := by decide",
+     "status": "finished",
+     "score": 0.1427,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0016032126732170582,
+   "clip_frac": 0.0018225476960651577,
+   "k3": 0.012853061081841588,
+   "approx_kl": 0.0001691701682064104,
+   "value_loss": 0.1193560203537345,
+   "seconds": 6.720234632492065
+  },
+  {
+   "iteration": 90,
+   "score": -0.016180943697690964,
+   "rm_score": -0.03500126302242279,
+   "kl": 0.14005137979984283,
+   "accuracy": 0.34375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.25,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.9375,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : q ∨ (q ∧ ¬q → (q ↔ q)) :=",
+     "answer": "Or.inr (fun h0 => ⟨fun h1 => Or.inl h1, fun h1 => h1⟩)",
+     "status": "finished",
+     "score": -0.757,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (r : α → α → Prop) (b : α) : (∀ x, P x) → ∀ x, (∀ y, Q b ∧ r y x) → Q b ∧ r x x :=",
+     "answer": "fun h0 x h1 => h0 h1 x",
+     "status": "finished",
+     "score": 0.4775,
+     "ok": false
+    },
+    {
+     "prompt": "example : 2 + (19 + 17 + 18) =",
+     "answer": "79 := by decide",
+     "status": "finished",
+     "score": 0.9797,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.011601428501307964,
+   "clip_frac": 0.0006491989188361913,
+   "k3": 0.006832095590652898,
+   "approx_kl": 6.738151892449196e-05,
+   "value_loss": 0.12884381599724293,
+   "seconds": 5.574920892715454
+  },
+  {
+   "iteration": 91,
+   "score": 0.011487203650176525,
+   "rm_score": 0.04091334342956543,
+   "kl": 0.24006034433841705,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.1875
+   },
+   "answer_tokens": 25.0,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : (q → p ∧ q) ∧ p → p :=",
+     "answer": "fun h0 => h0.2.2.2",
+     "status": "finished",
+     "score": -1.2613,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) : (∀ x, R x ↔ Q x) → (∀ x, Q x ↔ Q x) → ∀ x, R x ↔ Q x :=",
+     "answer": "fun h0 => _0",
+     "status": "finished",
+     "score": 1.11,
+     "ok": false
+    },
+    {
+     "prompt": "example : 2 - 14 =",
+     "answer": "0 := by decide",
+     "status": "finished",
+     "score": -0.3431,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.0022032889537513256,
+   "clip_frac": 0.0,
+   "k3": 0.014784299361053854,
+   "approx_kl": 5.029514471744702e-05,
+   "value_loss": 0.1602940447628498,
+   "seconds": 6.39404034614563
+  },
+  {
+   "iteration": 92,
+   "score": 0.16552028059959412,
+   "rm_score": 0.46354222297668457,
+   "kl": 0.21875907480716705,
+   "accuracy": 0.375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.875,
+    "nat": 0.0625,
+    "linear": 0.25
+   },
+   "answer_tokens": 24.84375,
+   "examples": [
+    {
+     "prompt": "example (q s : Prop) : (s → ¬q) ∨ (q ↔ q) :=",
+     "answer": "Or.inr (fun h0 => Or.inl h0)",
+     "status": "finished",
+     "score": 0.0594,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (b : α) : (∃ x, ¬Q x → ¬R b) → (∀ x, ¬Q x) → ¬R b :=",
+     "answer": "fun ⟨x, h0⟩ h1 => h0 (h1 x)",
+     "status": "finished",
+     "score": 0.9315,
+     "ok": true
+    },
+    {
+     "prompt": "example : 11 % 7 * 1 =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": 1.1115,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.00014456547796726227,
+   "clip_frac": 0.000615118769928813,
+   "k3": 0.010360217129345983,
+   "approx_kl": 6.583568648466098e-05,
+   "value_loss": 0.11259803920984268,
+   "seconds": 5.2245774269104
+  },
+  {
+   "iteration": 93,
+   "score": 0.07246753573417664,
+   "rm_score": 0.20822837948799133,
+   "kl": 0.24729816615581512,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.8125,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 21.859375,
+   "examples": [
+    {
+     "prompt": "example (q s : Prop) : ¬(s → s) → ((q ↔ s) ↔ ¬s) ∧ s ∧ s :=",
+     "answer": "by intro h0; cases h0 (fun h1 => h1.2.1 h1.1)",
+     "status": "finished",
+     "score": -0.7069,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (q : Prop) (a : α) : ¬(∀ x, P x ∧ (R a → q)) → ¬∀ x, (P x ∧ (R a → q)) ∧ (Q x ∨ r x a) :=",
+     "answer": "fun h0 h1 => h0.elim (fun x h2 => h2 x) (fun h2 => (h1 x h2).elim)",
+     "status": "finished",
+     "score": -0.8668,
+     "ok": false
+    },
+    {
+     "prompt": "example : 11 % 0 + 8 =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": 0.1393,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.003643272561021149,
+   "clip_frac": 0.0003289473825134337,
+   "k3": 0.01197571016382426,
+   "approx_kl": 3.828168793519178e-05,
+   "value_loss": 0.13490967731922865,
+   "seconds": 5.786417007446289
+  },
+  {
+   "iteration": 94,
+   "score": 0.06261546164751053,
+   "rm_score": 0.18119671940803528,
+   "kl": 0.17589551210403442,
+   "accuracy": 0.34375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.1875
+   },
+   "answer_tokens": 24.171875,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : False ∧ (q ∨ q) → q → q :=",
+     "answer": "fun h0 h1 => h0.2",
+     "status": "finished",
+     "score": -1.1492,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) : (∀ x, True ∨ r x x) → (∀ x, ¬Q x) → ∀ x, (True ∨ r x x) ∧ ¬Q x :=",
+     "answer": "fun h0 h1 x => ⟨h0 x, h1 x⟩",
+     "status": "finished",
+     "score": 0.5066,
+     "ok": true
+    },
+    {
+     "prompt": "example : 10 * (1 * (8 - 2)) =",
+     "answer": "80 := by decide",
+     "status": "finished",
+     "score": 0.3864,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0021427980391308665,
+   "clip_frac": 0.000659374229144305,
+   "k3": 0.012298923742491752,
+   "approx_kl": 9.436126002526635e-05,
+   "value_loss": 0.09723240416496992,
+   "seconds": 4.976597309112549
+  },
+  {
+   "iteration": 95,
+   "score": 0.07408381253480911,
+   "rm_score": 0.21266302466392517,
+   "kl": 0.2131379395723343,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.625,
+    "nat": 0.0,
+    "linear": 0.0625
+   },
+   "answer_tokens": 22.828125,
+   "examples": [
+    {
+     "prompt": "example (p : Prop) : (p ∨ True) ∨ p ∧ p :=",
+     "answer": "Or.inl (Or.inl trivial)",
+     "status": "finished",
+     "score": -0.6475,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (q : Prop) : (∃ x, R x ∧ ¬r x x ∧ q) → ∃ x, (¬r x x ∧ q) ∧ R x :=",
+     "answer": "fun ⟨x, h0, h1⟩ => ⟨x, h1, h0⟩",
+     "status": "finished",
+     "score": 0.872,
+     "ok": true
+    },
+    {
+     "prompt": "example : 14 - (0 + 1) =",
+     "answer": "3 := by decide",
+     "status": "finished",
+     "score": -0.7447,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.003446841612458229,
+   "clip_frac": 0.0010573116014711559,
+   "k3": 0.014335758751258254,
+   "approx_kl": 4.948668777161616e-05,
+   "value_loss": 0.1700959699228406,
+   "seconds": 5.726980447769165
+  },
+  {
+   "iteration": 96,
+   "score": 0.012264467775821686,
+   "rm_score": 0.04304596781730652,
+   "kl": 0.35072484612464905,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 23.96875,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : p ∨ (¬s ∨ s → p ∨ (¬s → ¬(False ∧ r))) :=",
+     "answer": "Or.inr (fun h0 h1 => Or.inl (fun h2 => h2))",
+     "status": "finished",
+     "score": -1.9694,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (a : α) : (∀ x, ¬R x ∧ (P a → r x x)) → ∀ x, (P a → r x x) ∧ ¬R x :=",
+     "answer": "fun h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": 0.3876,
+     "ok": true
+    },
+    {
+     "prompt": "example : 19 - 17 % 0 / 1 =",
+     "answer": "17 := by decide",
+     "status": "finished",
+     "score": -1.27,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0015642102807760239,
+   "clip_frac": 0.0006828415207564831,
+   "k3": 0.011853953415993601,
+   "approx_kl": 8.372610460585335e-05,
+   "value_loss": 0.12623197678476572,
+   "seconds": 5.373691082000732
+  },
+  {
+   "iteration": 97,
+   "score": 0.0055619701743125916,
+   "rm_score": 0.02465592324733734,
+   "kl": 0.2850467562675476,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.984375,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : (q → q) ∧ (p → q ∨ p) :=",
+     "answer": "⟨fun h0 => Or.inr h0.1, fun h0 h1 => h0⟩",
+     "status": "finished",
+     "score": -1.3795,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) : ¬(∃ x, r x x ∨ P x) → ∀ x, ¬r x x :=",
+     "answer": "fun h0 x h1 => h0 ⟨x, Or.inl h7⟩",
+     "status": "finished",
+     "score": -1.7885,
+     "ok": false
+    },
+    {
+     "prompt": "example : 1 * 5 * (1 * 2) =",
+     "answer": "0 := by decide",
+     "status": "finished",
+     "score": 1.4209,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.01986044109798968,
+   "clip_frac": 0.0006729487213306129,
+   "k3": 0.012506380211561918,
+   "approx_kl": 4.391812525742297e-05,
+   "value_loss": 0.14484820701181889,
+   "seconds": 6.304816722869873
+  },
+  {
+   "iteration": 98,
+   "score": -0.0451536551117897,
+   "rm_score": -0.11449528485536575,
+   "kl": 0.35660043358802795,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 24.703125,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : (q ∧ q) ∧ q → q ∧ q :=",
+     "answer": "fun h0 => h0.1",
+     "status": "finished",
+     "score": -0.5878,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (a : α) : (∀ x, Q x ∨ (R x → P x)) → ¬Q a → R a → P a :=",
+     "answer": "fun h0 h1 => (h0 a).elim (fun h2 => h2) (fun h2 => (h1 h2).elim)",
+     "status": "finished",
+     "score": 1.1521,
+     "ok": false
+    },
+    {
+     "prompt": "example : 11 + 14 - 13 / 19 =",
+     "answer": "7 := by decide",
+     "status": "finished",
+     "score": -0.5823,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.002291899989359081,
+   "clip_frac": 0.0,
+   "k3": 0.012982835934963077,
+   "approx_kl": 2.5698792004646975e-05,
+   "value_loss": 0.146174693480134,
+   "seconds": 5.6331446170806885
+  },
+  {
+   "iteration": 99,
+   "score": 0.025288809090852737,
+   "rm_score": 0.07878154516220093,
+   "kl": 0.3610991835594177,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.046875,
+   "examples": [
+    {
+     "prompt": "example (p r : Prop) : (p → p) ∨ (r ∨ p) ∨ p :=",
+     "answer": "Or.inl (fun h0 => h0)",
+     "status": "finished",
+     "score": 0.5111,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (q : Prop) : q → ∀ x, (∀ y, R y ↔ ∀ z, r z y) → (∀ y, r y x) → R x :=",
+     "answer": "fun _ x h0 h1 => (h0 x).1 h1",
+     "status": "finished",
+     "score": -1.2497,
+     "ok": false
+    },
+    {
+     "prompt": "example : 1 + (5 + 13) =",
+     "answer": "19 := by decide",
+     "status": "finished",
+     "score": -0.01,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.012300137022975832,
+   "clip_frac": 0.00026881720987148583,
+   "k3": 0.016764850937761366,
+   "approx_kl": 4.689687681391945e-05,
+   "value_loss": 0.12319949734956026,
+   "seconds": 6.045768737792969
+  },
+  {
+   "iteration": 100,
+   "score": 0.01564459502696991,
+   "rm_score": 0.05232024937868118,
+   "kl": 0.21479350328445435,
+   "accuracy": 0.390625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.8125,
+    "nat": 0.1875,
+    "linear": 0.1875
+   },
+   "answer_tokens": 21.109375,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : ¬(p ↔ p) → (s → s → s) → r → ¬p :=",
+     "answer": "by intro h0 h1 h2; trivial",
+     "status": "finished",
+     "score": 0.3616,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (r : α → α → Prop) (b : α) : ∀ x, (P b ∧ ¬r b b → Q x) → ∃ y, P b ∧ ¬r b b → Q y :=",
+     "answer": "fun x h0 => ⟨x, h0⟩",
+     "status": "finished",
+     "score": 0.8519,
+     "ok": true
+    },
+    {
+     "prompt": "example : 15 % 12 =",
+     "answer": "6 := by decide",
+     "status": "finished",
+     "score": -0.0347,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0002721098717302084,
+   "clip_frac": 0.0006666666595265269,
+   "k3": 0.015711454732809216,
+   "approx_kl": 4.534742453188301e-05,
+   "value_loss": 0.14550339430570602,
+   "seconds": 5.577403783798218
+  },
+  {
+   "iteration": 101,
+   "score": 0.04240196943283081,
+   "rm_score": 0.12573586404323578,
+   "kl": 0.5602509379386902,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.75,
+    "nat": 0.125,
+    "linear": 0.1875
+   },
+   "answer_tokens": 25.015625,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : s ∧ ¬p → (s → s) ∧ s :=",
+     "answer": "fun h0 => ⟨fun h1 => h0, fun h1 => h0⟩",
+     "status": "finished",
+     "score": -0.4156,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) : ∀ x, ¬r x x → ∃ y, ¬r y y :=",
+     "answer": "fun x h0 => ⟨x, h0⟩",
+     "status": "finished",
+     "score": 1.2702,
+     "ok": true
+    },
+    {
+     "prompt": "example : 9 - 0 =",
+     "answer": "9 := by decide",
+     "status": "finished",
+     "score": 0.8669,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.02489012118894607,
+   "clip_frac": 0.0006298228108789772,
+   "k3": 0.02019413944799453,
+   "approx_kl": 7.386297188816116e-05,
+   "value_loss": 0.1358658242970705,
+   "seconds": 6.4364564418792725
+  },
+  {
+   "iteration": 102,
+   "score": 0.05609363317489624,
+   "rm_score": 0.16330242156982422,
+   "kl": 0.3516523241996765,
+   "accuracy": 0.21875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.5625,
+    "nat": 0.0,
+    "linear": 0.125
+   },
+   "answer_tokens": 27.46875,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : (¬(q ↔ q) → q) ∨ (q → p ∨ r) :=",
+     "answer": "Or.inr (fun h0 => h0.2 (Or.inr h0.2 (fun h1 => h0.1 (Or.inr h1) h1)))",
+     "status": "finished",
+     "score": -0.2318,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (p : Prop) (b : α) : (∀ x, R x ∧ R b ∨ ¬p ∧ Q b) → ¬(¬p ∧ Q b) → ∀ x, R x ∧ R b :=",
+     "answer": "fun h0 h1 x => (h0 x).elim (fun h2 => h2) (fun h2 => (h1 h2).elim)",
+     "status": "finished",
+     "score": 0.3336,
+     "ok": true
+    },
+    {
+     "prompt": "example : 1 + (12 - 2) * 0 =",
+     "answer": "20 := by decide",
+     "status": "finished",
+     "score": -1.0434,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0037277895025908947,
+   "clip_frac": 0.0005472487828228623,
+   "k3": 0.014364121947437525,
+   "approx_kl": 6.384915731417088e-05,
+   "value_loss": 0.142618247307837,
+   "seconds": 6.865182399749756
+  },
+  {
+   "iteration": 103,
+   "score": -0.17471235990524292,
+   "rm_score": -0.4699723720550537,
+   "kl": 0.4737994372844696,
+   "accuracy": 0.21875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.6875,
+    "nat": 0.0,
+    "linear": 0.0625
+   },
+   "answer_tokens": 28.421875,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : (q → p) ∧ q → p ∨ (s → r) :=",
+     "answer": "fun h0 => Or.inl (fun h1 => h1)",
+     "status": "finished",
+     "score": 0.0744,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (q : Prop) : (∀ x, P x ∧ q → Q x) → (∀ x, P x ∧ q → R x) → ∀ x, P x ∧ q → Q x ∧ R x :=",
+     "answer": "fun h0 h1 x h2 => ⟨h0 x h2, h1 x h2⟩",
+     "status": "finished",
+     "score": 0.9574,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 - 4 =",
+     "answer": "1 := by decide",
+     "status": "finished",
+     "score": 1.4502,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.00048672978300601244,
+   "clip_frac": 0.0,
+   "k3": 0.012246331200003624,
+   "approx_kl": 2.4624126730545864e-05,
+   "value_loss": 0.11816520616412163,
+   "seconds": 6.971815824508667
+  },
+  {
+   "iteration": 104,
+   "score": -0.04080532118678093,
+   "rm_score": -0.10256455093622208,
+   "kl": 0.43658459186553955,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.5625,
+    "nat": 0.1875,
+    "linear": 0.25
+   },
+   "answer_tokens": 26.515625,
+   "examples": [
+    {
+     "prompt": "example (r : Prop) : (r ↔ r) ∧ ((r ↔ r) ∨ (r ↔ r → r)) :=",
+     "answer": "⟨⟨⟨fun h0 => ⟨h0, fun h1 h2 => h1, fun h1 => h1⟩, fun h0 => h0⟩, fun h0 => h0⟩",
+     "status": "finished",
+     "score": -1.6376,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (p : Prop) (b : α) : (∃ x, ¬Q x) → (∀ x, ¬Q x → p → R b) → p → R b :=",
+     "answer": "fun h0 h1 => h0.elim h1",
+     "status": "finished",
+     "score": -1.0539,
+     "ok": true
+    },
+    {
+     "prompt": "example : 12 * (20 % 7 + 6) =",
+     "answer": "234 := by decide",
+     "status": "finished",
+     "score": -0.3488,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.007856559474021196,
+   "clip_frac": 0.0008524352451786399,
+   "k3": 0.0165391688933596,
+   "approx_kl": 6.184372691109274e-05,
+   "value_loss": 0.12671385146677494,
+   "seconds": 5.808803081512451
+  },
+  {
+   "iteration": 105,
+   "score": 0.03877560421824455,
+   "rm_score": 0.11578597873449326,
+   "kl": 0.2044077217578888,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.875,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.71875,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : (q → q) → (¬q ∨ q → q) ∧ q → q ∧ q :=",
+     "answer": "fun h0 h1 => ⟨h0, h0⟩",
+     "status": "finished",
+     "score": 1.2476,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (a : α) : (∃ x, ¬¬(P a ∨ R x)) → ¬∀ x, ¬(P a ∨ R x) :=",
+     "answer": "fun ⟨u, h0⟩ h1 => h0 (h1 x)",
+     "status": "finished",
+     "score": 0.0451,
+     "ok": false
+    },
+    {
+     "prompt": "example : 11 * 9 =",
+     "answer": "125 := by decide",
+     "status": "finished",
+     "score": -0.3647,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.007258809986524284,
+   "clip_frac": 0.0,
+   "k3": 0.006368033442413434,
+   "approx_kl": 1.1162920316110103e-05,
+   "value_loss": 0.13971143122762442,
+   "seconds": 7.367446660995483
+  },
+  {
+   "iteration": 106,
+   "score": 0.0538649782538414,
+   "rm_score": 0.15718749165534973,
+   "kl": 0.2518130838871002,
+   "accuracy": 0.34375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.75,
+    "nat": 0.125,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.9375,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : (r ∧ r → r) ∨ (s ∧ (p → ¬s) ↔ s) :=",
+     "answer": "Or.inl (fun h0 => h0)",
+     "status": "finished",
+     "score": 1.8132,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) : (∃ x, ∀ y, ¬r x y) → ∃ x, ¬r x x :=",
+     "answer": "fun ⟨x, h0⟩ => ⟨x, h0 x⟩",
+     "status": "finished",
+     "score": 0.5544,
+     "ok": true
+    },
+    {
+     "prompt": "example : 9 * (2 % 6) =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": -1.7895,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.00193807203322649,
+   "clip_frac": 0.00031645569833926857,
+   "k3": 0.010136687254998833,
+   "approx_kl": 3.0227965574169957e-05,
+   "value_loss": 0.1600428968667984,
+   "seconds": 5.658134460449219
+  },
+  {
+   "iteration": 107,
+   "score": 0.10508562624454498,
+   "rm_score": 0.29772448539733887,
+   "kl": 0.22475646436214447,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 24.34375,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : (¬p ↔ ¬p → s) → p → p :=",
+     "answer": "fun h0 h1 => h0.2 (fun h2 => absurd h2.1 h2)",
+     "status": "finished",
+     "score": -1.905,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (q : Prop) : (∀ x, Q x) → (∃ x, (R x ∧ q) ∧ ¬P x) → ∃ x, R x ∧ q :=",
+     "answer": "fun h0 ⟨x, h1⟩ => ⟨x, h0 x, h1⟩",
+     "status": "finished",
+     "score": 1.9713,
+     "ok": false
+    },
+    {
+     "prompt": "example : (9 + 2) * 12 =",
+     "answer": "73 := by decide",
+     "status": "finished",
+     "score": -0.7644,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0034347730688750744,
+   "clip_frac": 0.0003633720916695893,
+   "k3": 0.00997209781780839,
+   "approx_kl": 5.1911952681393814e-05,
+   "value_loss": 0.13010328449308872,
+   "seconds": 5.6970603466033936
+  },
+  {
+   "iteration": 108,
+   "score": 0.033365555107593536,
+   "rm_score": 0.1009422019124031,
+   "kl": 0.3092677891254425,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.3125
+   },
+   "answer_tokens": 25.796875,
+   "examples": [
+    {
+     "prompt": "example (p r : Prop) : ¬(r ∨ (p → p)) → p :=",
+     "answer": "by intro h0; cases h0 (Or.inr (fun h1 => h0 (Or.inl h1)))",
+     "status": "finished",
+     "score": -1.8319,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (q : Prop) : (False → ∀ x, ¬r x x → q) → ∀ x, False → ¬r x x → q :=",
+     "answer": "fun h0 x h1 => h0 h1 x",
+     "status": "finished",
+     "score": -0.9441,
+     "ok": true
+    },
+    {
+     "prompt": "example : 17 - 7 + 0 =",
+     "answer": "16 := by decide",
+     "status": "finished",
+     "score": -0.9471,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0008641607710160315,
+   "clip_frac": 0.0005512739589903504,
+   "k3": 0.018460402032360435,
+   "approx_kl": 5.7865856064233365e-05,
+   "value_loss": 0.14182863477617502,
+   "seconds": 6.021777868270874
+  },
+  {
+   "iteration": 109,
+   "score": 0.21145662665367126,
+   "rm_score": 0.5895802974700928,
+   "kl": 0.3253754675388336,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.5625,
+    "nat": 0.1875,
+    "linear": 0.1875
+   },
+   "answer_tokens": 23.265625,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : (s → r → p) → p → p :=",
+     "answer": "fun h0 h1 => h1",
+     "status": "finished",
+     "score": 0.1907,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (p q : Prop) (a : α) : q ∧ R a → (∀ x, Q x) ∨ p → ∀ x, Q x ∨ p :=",
+     "answer": "fun h0 h1 => absurd (h0 x) h1",
+     "status": "finished",
+     "score": 1.2595,
+     "ok": false
+    },
+    {
+     "prompt": "example : 15 * 20 - 12 =",
+     "answer": "105 := by decide",
+     "status": "finished",
+     "score": 0.4167,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0008136171381920576,
+   "clip_frac": 0.0003918495203834027,
+   "k3": 0.013392948836553842,
+   "approx_kl": 5.4990467077686844e-05,
+   "value_loss": 0.10592530947178602,
+   "seconds": 6.956050872802734
+  },
+  {
+   "iteration": 110,
+   "score": 0.063422791659832,
+   "rm_score": 0.18341180682182312,
+   "kl": 0.5389681458473206,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 21.625,
+   "examples": [
+    {
+     "prompt": "example (r : Prop) : r → (r → r) ∨ False :=",
+     "answer": "fun h0 => Or.inl h0",
+     "status": "finished",
+     "score": 0.6772,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, Q a ∨ R x) → (∀ x, P b ∨ r a x) → (∃ x, ¬(P b ∨ r a x)) → ¬False :=",
+     "answer": "fun h0 h1 ⟨x, h2⟩ => h2.elim (h0 x) (h1 x)",
+     "status": "finished",
+     "score": 1.0444,
+     "ok": false
+    },
+    {
+     "prompt": "example : (6 - 6) * 7 + 16 =",
+     "answer": "99 := by decide",
+     "status": "finished",
+     "score": -0.7438,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0001523100072517991,
+   "clip_frac": 0.0007130049052648246,
+   "k3": 0.01682949683163315,
+   "approx_kl": 0.00012095951744583999,
+   "value_loss": 0.17273968551307917,
+   "seconds": 5.310421943664551
+  },
+  {
+   "iteration": 111,
+   "score": -0.01976623944938183,
+   "rm_score": -0.04483842849731445,
+   "kl": 0.08862984925508499,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.8125,
+    "nat": 0.125,
+    "linear": 0.25
+   },
+   "answer_tokens": 25.421875,
+   "examples": [
+    {
+     "prompt": "example (p r : Prop) : ((p ↔ r) ∨ False → p ∧ r) → (r ↔ r) :=",
+     "answer": "fun h0 => ⟨fun h1 => ⟨fun h2 => h2, fun h2 => h2⟩, fun h1 => Or.elim h1 (fun h2 => h2) (fun h2 => h2)⟩",
+     "status": "finished",
+     "score": 1.2305,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (p : Prop) (a : α) : (∀ x, ∀ y, r y x) → ¬(∀ x, r x a) → p ∨ p :=",
+     "answer": "fun h0 h1 => absurd (h0 a) h1",
+     "status": "finished",
+     "score": 0.2925,
+     "ok": true
+    },
+    {
+     "prompt": "example : 3 * 17 * (8 + 5) =",
+     "answer": "201 := by decide",
+     "status": "finished",
+     "score": -1.2575,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0034216123167425394,
+   "clip_frac": 0.000310945266392082,
+   "k3": 0.011816465586889535,
+   "approx_kl": 4.766439945314437e-05,
+   "value_loss": 0.12365697510540485,
+   "seconds": 6.457031011581421
+  },
+  {
+   "iteration": 112,
+   "score": -0.018670640885829926,
+   "rm_score": -0.041832394897937775,
+   "kl": 0.20599806308746338,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.8125,
+    "nat": 0.25,
+    "linear": 0.0
+   },
+   "answer_tokens": 25.140625,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : (¬p → ¬p ∨ p) ∨ s :=",
+     "answer": "Or.inl (fun h0 h1 => h1)",
+     "status": "finished",
+     "score": 0.5042,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (p : Prop) (a : α) : (∃ x, ¬(Q a ∧ p ∨ P x)) → ¬∀ x, Q a ∧ p ∨ P x :=",
+     "answer": "fun ⟨x, h0⟩ h1 => h0 (h1 x)",
+     "status": "finished",
+     "score": 0.9946,
+     "ok": true
+    },
+    {
+     "prompt": "example : 0 * 17 =",
+     "answer": "60 := by decide",
+     "status": "finished",
+     "score": 0.8776,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0014358124462887645,
+   "clip_frac": 0.0006475868576671928,
+   "k3": 0.01595191252999939,
+   "approx_kl": 5.208338905049459e-05,
+   "value_loss": 0.12995645590126514,
+   "seconds": 8.316463232040405
+  },
+  {
+   "iteration": 113,
+   "score": -0.07005970180034637,
+   "rm_score": -0.1828313022851944,
+   "kl": 0.4358530640602112,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.5,
+    "nat": 0.125,
+    "linear": 0.125
+   },
+   "answer_tokens": 26.765625,
+   "examples": [
+    {
+     "prompt": "example (p : Prop) : p → (¬p → ¬p → ¬True ↔ p → p) :=",
+     "answer": "fun h0 => ⟨fun h1 h2 h3 => trivial, fun h1 h2 => h0⟩",
+     "status": "finished",
+     "score": -0.279,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (b : α) : (∀ x, (False ∨ R x) ∧ r x b) → (∀ x, False ∨ R x) ∧ ∀ x, r x b :=",
+     "answer": "fun h0 => ⟨fun x => (h0 x).1, fun x => (h0 x).2⟩",
+     "status": "finished",
+     "score": 1.2931,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 % 17 =",
+     "answer": "8 := by decide",
+     "status": "finished",
+     "score": -0.6213,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0011359378404449672,
+   "clip_frac": 0.0009593837603460997,
+   "k3": 0.014732477604411542,
+   "approx_kl": 7.645927766475642e-05,
+   "value_loss": 0.10346563346683979,
+   "seconds": 6.921279430389404
+  },
+  {
+   "iteration": 114,
+   "score": -0.06328690052032471,
+   "rm_score": -0.16424834728240967,
+   "kl": 0.3041333854198456,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.8125,
+    "nat": 0.25,
+    "linear": 0.125
+   },
+   "answer_tokens": 25.28125,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : ((p → p) → ¬q) → p → r → r :=",
+     "answer": "fun h0 h1 h2 => h1",
+     "status": "finished",
+     "score": 1.2594,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (r : α → α → Prop) (q : Prop) (a b : α) : Q a ∧ q → (∀ x, P b ∨ r x x → Q b → r x x) → P b ∨ r b b → Q b → r b b :=",
+     "answer": "fun _ h0 => h0 b",
+     "status": "finished",
+     "score": -0.9916,
+     "ok": true
+    },
+    {
+     "prompt": "example : 11 + 7 - 1 =",
+     "answer": "20 := by decide",
+     "status": "finished",
+     "score": -1.3254,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0008033994236029685,
+   "clip_frac": 0.0,
+   "k3": 0.007092143147019669,
+   "approx_kl": 2.704392937857847e-05,
+   "value_loss": 0.107756651006639,
+   "seconds": 5.838728666305542
+  },
+  {
+   "iteration": 115,
+   "score": -0.14409491419792175,
+   "rm_score": -0.3859656751155853,
+   "kl": 0.39626991748809814,
+   "accuracy": 0.265625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0
+   },
+   "answer_tokens": 23.046875,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : p → ¬p → ((s ∨ p) ∧ (p ∨ p) ↔ s) :=",
+     "answer": "fun h0 h1 => ⟨fun h2 => h2, fun h2 => h2⟩",
+     "status": "finished",
+     "score": -0.7623,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (p q : Prop) (a b : α) : (∀ x, P x → ¬R a ∨ ¬p) → (¬R a ∨ ¬p → r a b ∧ ¬q) → ∀ x, P x → r a b ∧ ¬q :=",
+     "answer": "fun h0 x h1 => h0 h1 x",
+     "status": "finished",
+     "score": 1.2662,
+     "ok": false
+    },
+    {
+     "prompt": "example : 20 + 2 + 10 =",
+     "answer": "30 := by decide",
+     "status": "finished",
+     "score": -0.6784,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.005015538423322141,
+   "clip_frac": 0.0003602305368985981,
+   "k3": 0.011905102175660431,
+   "approx_kl": 7.17112958525945e-05,
+   "value_loss": 0.15695249661803246,
+   "seconds": 5.167185544967651
+  },
+  {
+   "iteration": 116,
+   "score": 0.06064095348119736,
+   "rm_score": 0.17577914893627167,
+   "kl": 0.18985195457935333,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.625,
+    "nat": 0.1875,
+    "linear": 0.125
+   },
+   "answer_tokens": 24.671875,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : (r → p → q) → True ∨ r :=",
+     "answer": "fun h0 => Or.inl (fun h1 h2 => trivial)",
+     "status": "finished",
+     "score": 0.0117,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, R x) → (∀ x, P a ∨ r x b ↔ ¬Q x) → ¬(P a ∨ r a b) → ¬¬Q a :=",
+     "answer": "fun h0 h1 h2 => h1 ((h0 a).2 h2)",
+     "status": "finished",
+     "score": -1.1166,
+     "ok": false
+    },
+    {
+     "prompt": "example : 1 + 0 + (14 + 7) =",
+     "answer": "25 := by decide",
+     "status": "finished",
+     "score": -0.5956,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.016187685541808605,
+   "clip_frac": 0.0006297228974290192,
+   "k3": 0.01265133504057303,
+   "approx_kl": 4.9147058421685054e-05,
+   "value_loss": 0.15739298332482576,
+   "seconds": 5.647499322891235
+  },
+  {
+   "iteration": 117,
+   "score": -0.06159548461437225,
+   "rm_score": -0.15960752964019775,
+   "kl": 0.4014064371585846,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 27.625,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : ¬(r ∧ (r ∨ (q → p) ∨ (r → p))) → ¬r :=",
+     "answer": "by intro h0 h1; cases h0 (Or.inr (fun h2 => h0 (Or.inl h2)))",
+     "status": "finished",
+     "score": 0.7911,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (p : Prop) (b : α) : (∃ x, (p → Q x) → R b ∧ P b) → (∀ x, p → Q x) → R b ∧ P b :=",
+     "answer": "fun ⟨x, h0⟩ h1 => h0 (h1 x)",
+     "status": "finished",
+     "score": 1.2445,
+     "ok": true
+    },
+    {
+     "prompt": "example : 18 + (11 - 20) =",
+     "answer": "21 := by decide",
+     "status": "finished",
+     "score": 0.5922,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0008207126520574093,
+   "clip_frac": 0.00027056277031078935,
+   "k3": 0.011201501300092787,
+   "approx_kl": 4.2322212834733364e-05,
+   "value_loss": 0.11324230022728443,
+   "seconds": 5.7806477546691895
+  },
+  {
+   "iteration": 118,
+   "score": -0.01312939077615738,
+   "rm_score": -0.026628553867340088,
+   "kl": 0.40992271900177,
+   "accuracy": 0.265625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.5,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 21.71875,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : ((¬(q ∨ p) ↔ p) → ¬(p ∨ False)) ∨ p :=",
+     "answer": "Or.inl (fun h0 => Or.inl (fun h1 => h1))",
+     "status": "finished",
+     "score": 0.2932,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) : True ∧ False → ∀ x, ¬P x ∨ True ∧ False :=",
+     "answer": "fun h0 _ => h0.2",
+     "status": "finished",
+     "score": -1.1265,
+     "ok": false
+    },
+    {
+     "prompt": "example : 3 * 13 + 1 =",
+     "answer": "8 := by decide",
+     "status": "finished",
+     "score": -0.062,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.012663735600654036,
+   "clip_frac": 0.0007462686626240611,
+   "k3": 0.012755589908920228,
+   "approx_kl": 5.721966441308772e-05,
+   "value_loss": 0.12014391692355275,
+   "seconds": 5.214900732040405
+  },
+  {
+   "iteration": 119,
+   "score": 0.13983765244483948,
+   "rm_score": 0.3930754065513611,
+   "kl": 0.10329055041074753,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.875,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.265625,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : ¬(¬(¬q ∧ p) → ¬(¬p ∨ p)) ∨ (s → s) :=",
+     "answer": "Or.inl (Or.inr (fun h0 h1 => h0))",
+     "status": "finished",
+     "score": 0.5215,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) : (∃ x, P x ∧ Q x) → ∃ x, Q x ∧ P x :=",
+     "answer": "fun ⟨x, h0, h1⟩ => ⟨x, h1, h0⟩",
+     "status": "finished",
+     "score": 0.1238,
+     "ok": true
+    },
+    {
+     "prompt": "example : 10 + 1 * 13 =",
+     "answer": "22 := by decide",
+     "status": "finished",
+     "score": 1.1742,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0022857580333948135,
+   "clip_frac": 0.00039308174746111035,
+   "k3": 0.01160587667254731,
+   "approx_kl": 4.626009903324432e-05,
+   "value_loss": 0.1342808697372675,
+   "seconds": 5.510648488998413
+  },
+  {
+   "iteration": 120,
+   "score": 0.1043490618467331,
+   "rm_score": 0.2957034707069397,
+   "kl": 0.41087672114372253,
+   "accuracy": 0.21875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.0
+   },
+   "answer_tokens": 23.453125,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : ((¬p ↔ p) → s) ∨ ¬(s → p) :=",
+     "answer": "Or.inr (fun h0 => h0)",
+     "status": "finished",
+     "score": 1.171,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (r : α → α → Prop) (q : Prop) (a b : α) : (r b a ∨ Q a → ∀ x, q ∨ R x) → ∀ x, r b a ∨ Q a → q ∨ R x :=",
+     "answer": "fun h0 x => h0 x x",
+     "status": "finished",
+     "score": -0.2621,
+     "ok": false
+    },
+    {
+     "prompt": "example : 7 * 12 - 17 =",
+     "answer": "44 := by decide",
+     "status": "finished",
+     "score": -0.0228,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.01055423030629754,
+   "clip_frac": 0.0002847380528692156,
+   "k3": 0.010386028880020604,
+   "approx_kl": 4.442641499504306e-05,
+   "value_loss": 0.12674407195299864,
+   "seconds": 6.571055173873901
+  },
+  {
+   "iteration": 121,
+   "score": -0.028070062398910522,
+   "rm_score": -0.06762206554412842,
+   "kl": 0.24801139533519745,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 26.1875,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : q → p ∨ ¬q ∧ ¬q → p :=",
+     "answer": "fun h0 h1 => Or.elim h1 (fun h2 => h2 h2.2) (fun h2 => h2)",
+     "status": "finished",
+     "score": 0.0473,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (a : α) : ((∃ x, P x) → ∀ x, R a ∧ r a x) → ∀ x, (∃ y, P y) → R a ∧ r a x :=",
+     "answer": "fun ⟨x, h0, h1⟩ => h0 x h1.1 h",
+     "status": "finished",
+     "score": 1.423,
+     "ok": false
+    },
+    {
+     "prompt": "example : 17 / 3 - 1 =",
+     "answer": "13 := by decide",
+     "status": "finished",
+     "score": -1.6481,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.00017191888764500618,
+   "clip_frac": 0.0,
+   "k3": 0.009919236821588129,
+   "approx_kl": 2.3956408974608315e-05,
+   "value_loss": 0.12567661050707102,
+   "seconds": 6.156918287277222
+  },
+  {
+   "iteration": 122,
+   "score": -0.09500537812709808,
+   "rm_score": -0.25127607583999634,
+   "kl": 0.25655221939086914,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.25
+   },
+   "answer_tokens": 24.3125,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : q → (¬q → q) → q :=",
+     "answer": "fun h0 h1 => h0",
+     "status": "finished",
+     "score": -0.2024,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (b : α) : (∀ x, ∀ y, r x x ∨ ¬P y → r x b) → (∃ x, ∃ y, r x x ∨ ¬P y) → ∃ x, r x b :=",
+     "answer": "fun h0 ⟨x, y, h1⟩ => ⟨x, h0 x y h1⟩",
+     "status": "finished",
+     "score": -1.0392,
+     "ok": true
+    },
+    {
+     "prompt": "example : 16 * 10 =",
+     "answer": "180 := by decide",
+     "status": "finished",
+     "score": 0.0029,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.04867302346974611,
+   "clip_frac": 0.0009724215051392093,
+   "k3": 0.011512578290421516,
+   "approx_kl": 6.213229474383297e-05,
+   "value_loss": 0.10357233323156834,
+   "seconds": 7.60418701171875
+  },
+  {
+   "iteration": 123,
+   "score": 0.18845872581005096,
+   "rm_score": 0.5264796614646912,
+   "kl": 0.551861047744751,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 24.171875,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : s → (p → p) ∨ r :=",
+     "answer": "fun h0 => Or.inr (Or.inl h0)",
+     "status": "finished",
+     "score": 0.0042,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (p : Prop) : ∀ x, (∀ y, (p → p) → ¬r y x) → (p → p) → ¬r x x :=",
+     "answer": "fun x h0 => h0 x",
+     "status": "finished",
+     "score": 1.4447,
+     "ok": true
+    },
+    {
+     "prompt": "example : (1 + 12) / 5 =",
+     "answer": "1 := by decide",
+     "status": "finished",
+     "score": -0.4254,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.008235584245994687,
+   "clip_frac": 0.00039308174746111035,
+   "k3": 0.016410802491009235,
+   "approx_kl": 6.517419526375079e-05,
+   "value_loss": 0.19786312058568,
+   "seconds": 5.843713283538818
+  },
+  {
+   "iteration": 124,
+   "score": 0.08174391090869904,
+   "rm_score": 0.23368045687675476,
+   "kl": 0.20146116614341736,
+   "accuracy": 0.390625,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.8125,
+    "nat": 0.25,
+    "linear": 0.25
+   },
+   "answer_tokens": 24.3125,
+   "examples": [
+    {
+     "prompt": "example (q r : Prop) : q ∨ (¬(r ∧ q ∨ q) → (q → q) ∨ (r → r)) :=",
+     "answer": "Or.inr (fun h0 => h0.1)",
+     "status": "finished",
+     "score": -0.4327,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, ¬R a → False → P x ∨ ¬r a b) → ¬R a → ∀ x, False → P x ∨ ¬r a b :=",
+     "answer": "fun h0 h1 x => h0 x h1",
+     "status": "finished",
+     "score": 0.7708,
+     "ok": true
+    },
+    {
+     "prompt": "example : 19 / (3 + 2) =",
+     "answer": "5 := by decide",
+     "status": "finished",
+     "score": -2.1393,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.004436542978510261,
+   "clip_frac": 0.0,
+   "k3": 0.008752814872423187,
+   "approx_kl": 1.559532486083981e-05,
+   "value_loss": 0.13673935178667307,
+   "seconds": 5.4000403881073
+  },
+  {
+   "iteration": 125,
+   "score": -0.0046172551810741425,
+   "rm_score": -0.0032732784748077393,
+   "kl": 0.15635886788368225,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.0,
+    "linear": 0.1875
+   },
+   "answer_tokens": 25.078125,
+   "examples": [
+    {
+     "prompt": "example (r s : Prop) : r ∧ s ∨ s ↔ s :=",
+     "answer": "⟨fun h0 => Or.elim h0 (fun h1 => h1) (fun h1 => h1), fun h0 => Or.inl h0⟩",
+     "status": "finished",
+     "score": -1.0298,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) (p : Prop) : ¬(∀ x, R x ∨ p) → ¬∀ x, (R x ∨ p) ∧ ∀ y, r x y :=",
+     "answer": "fun h0 h1 => h0 (fun x => (h1 x).1)",
+     "status": "finished",
+     "score": -0.0456,
+     "ok": true
+    },
+    {
+     "prompt": "example : 1 * 17 * 16 =",
+     "answer": "685 := by decide",
+     "status": "finished",
+     "score": 0.8275,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.002067151013761759,
+   "clip_frac": 0.00034818940912373364,
+   "k3": 0.008985900843981653,
+   "approx_kl": 3.526038229040296e-05,
+   "value_loss": 0.10070349229499698,
+   "seconds": 5.523196697235107
+  },
+  {
+   "iteration": 126,
+   "score": -0.07780947536230087,
+   "rm_score": -0.204094797372818,
+   "kl": 0.22346045076847076,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.5625,
+    "nat": 0.25,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.109375,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : s ∨ (r ∧ s → q ∨ s) :=",
+     "answer": "Or.inr (fun h0 => Or.inl h0)",
+     "status": "finished",
+     "score": -1.3983,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (r : α → α → Prop) (a b : α) : (∀ x, Q x ∨ r a b) → ¬(Q a ∨ r a b) → r a a ∧ ¬R a :=",
+     "answer": "fun h0 h1 => (h0 a).elim (fun h2 => h2) (fun h2 => (h1 h2).elim)",
+     "status": "finished",
+     "score": 1.8127,
+     "ok": false
+    },
+    {
+     "prompt": "example : 5 / 12 =",
+     "answer": "0 := by decide",
+     "status": "finished",
+     "score": 1.1547,
+     "ok": true
+    }
+   ],
+   "policy_loss": -0.0015976971480995417,
+   "clip_frac": 0.0,
+   "k3": 0.032607624656520784,
+   "approx_kl": 1.7113998232787253e-05,
+   "value_loss": 0.11650557722896338,
+   "seconds": 5.839799642562866
+  },
+  {
+   "iteration": 127,
+   "score": 0.1072588786482811,
+   "rm_score": 0.30368733406066895,
+   "kl": 0.3319285809993744,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.8125,
+   "examples": [
+    {
+     "prompt": "example (r : Prop) : (r → r ∧ r) ∧ r → r :=",
+     "answer": "fun h0 => h0.2.1",
+     "status": "finished",
+     "score": -0.8335,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (q : Prop) : (∀ x, ¬Q x ∧ (q ∨ R x) → P x) → ∀ x, ¬Q x → q ∨ R x → P x :=",
+     "answer": "fun h0 x h1 h2 => h0 x ⟨h1, h2⟩",
+     "status": "finished",
+     "score": 0.8358,
+     "ok": true
+    },
+    {
+     "prompt": "example : 8 % 6 * 14 - 2 =",
+     "answer": "60 := by decide",
+     "status": "finished",
+     "score": -0.7069,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.03002387285232544,
+   "clip_frac": 0.0006221309886313975,
+   "k3": 0.013425228709820658,
+   "approx_kl": 5.939034952007205e-05,
+   "value_loss": 0.13179507665336132,
+   "seconds": 5.970616579055786
+  },
+  {
+   "iteration": 128,
+   "score": -0.10200178623199463,
+   "rm_score": -0.2704724967479706,
+   "kl": 0.4437606632709503,
+   "accuracy": 0.1875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.5,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 26.390625,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : s → p → s ∨ ¬(q → s) :=",
+     "answer": "fun h0 h1 => Or.inl (fun h2 => h2)",
+     "status": "finished",
+     "score": 0.4336,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (q : Prop) : (∃ x, P x) → ∀ x, (∀ y, q ∨ r x y) → q ∨ r x x :=",
+     "answer": "fun x h0 h1 => h0 h1 x",
+     "status": "finished",
+     "score": -0.178,
+     "ok": false
+    },
+    {
+     "prompt": "example : 13 * (7 + 10) =",
+     "answer": "206 := by decide",
+     "status": "finished",
+     "score": 1.9041,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.024302024859935045,
+   "clip_frac": 0.00025252526393160224,
+   "k3": 0.010781409626360983,
+   "approx_kl": 5.1472392954112145e-05,
+   "value_loss": 0.11806390155106783,
+   "seconds": 5.861872911453247
+  },
+  {
+   "iteration": 129,
+   "score": -0.19191551208496094,
+   "rm_score": -0.5171736478805542,
+   "kl": 0.17523585259914398,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.1875,
+    "linear": 0.0
+   },
+   "answer_tokens": 26.59375,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : (s → q) → q ∧ p → p :=",
+     "answer": "by intro h0; cases h0 ⟨fun h1 => h1, h0 fun h1 => h1⟩",
+     "status": "finished",
+     "score": -1.5194,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) : (∀ x, P x ∧ ∀ y, r x y) → ∀ x, ∀ y, r x y :=",
+     "answer": "fun h0 x => (h0 x).2",
+     "status": "finished",
+     "score": 0.8487,
+     "ok": true
+    },
+    {
+     "prompt": "example : 0 * 12 + 8 / 1 =",
+     "answer": "18 := by decide",
+     "status": "finished",
+     "score": -1.0289,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.005086096236482263,
+   "clip_frac": 0.0003676470660138875,
+   "k3": 0.012418953934684396,
+   "approx_kl": 3.928281171995217e-05,
+   "value_loss": 0.118125363253057,
+   "seconds": 6.2930145263671875
+  },
+  {
+   "iteration": 130,
+   "score": -0.08159307390451431,
+   "rm_score": -0.21447598934173584,
+   "kl": 0.22555086016654968,
+   "accuracy": 0.328125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.0,
+    "linear": 0.25
+   },
+   "answer_tokens": 24.03125,
+   "examples": [
+    {
+     "prompt": "example (p : Prop) : p ∧ True ∧ True ↔ p ∧ p ∨ p :=",
+     "answer": "⟨fun h0 => Or.inl trivial, fun h0 => Or.elim h0 (fun h1 => h1) (fun h1 => h1)⟩",
+     "status": "finished",
+     "score": -1.0887,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (p : Prop) (a : α) : (P a ∨ p) ∧ (∃ x, ∀ y, r y x) → ∃ x, (P a ∨ p) ∧ ∀ y, r y x :=",
+     "answer": "fun ⟨h0, x, h1⟩ => ⟨x, h0, h1⟩",
+     "status": "finished",
+     "score": 1.7197,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 * 7 / 13 - 9 =",
+     "answer": "3 := by decide",
+     "status": "finished",
+     "score": -0.8166,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.008348303148522973,
+   "clip_frac": 0.0004340277810115367,
+   "k3": 0.012248163140611723,
+   "approx_kl": 4.4102273108137524e-05,
+   "value_loss": 0.11682252772152424,
+   "seconds": 5.829989194869995
+  },
+  {
+   "iteration": 131,
+   "score": 0.07034745812416077,
+   "rm_score": 0.2024114429950714,
+   "kl": 0.4954180121421814,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.5,
+    "nat": 0.3125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.390625,
+   "examples": [
+    {
+     "prompt": "example (p q r : Prop) : (p → p ∨ (¬r ∨ q → p → q)) ∨ (r ↔ r) :=",
+     "answer": "Or.inl (fun h0 h1 => h1)",
+     "status": "finished",
+     "score": 0.1035,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (r : α → α → Prop) (q : Prop) (a b : α) : (∀ x, Q x → q) → (∀ x, (Q x → q) → r b b → R x) → r b b → R a :=",
+     "answer": "fun h0 h1 => h1 a (h0 a)",
+     "status": "finished",
+     "score": 0.356,
+     "ok": true
+    },
+    {
+     "prompt": "example : 1 % 4 =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": 1.3568,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0012774898204952478,
+   "clip_frac": 0.0015633329458069056,
+   "k3": 0.017233614227734506,
+   "approx_kl": 0.0001149279886902832,
+   "value_loss": 0.12198827508836985,
+   "seconds": 5.799560308456421
+  },
+  {
+   "iteration": 132,
+   "score": -0.1515973061323166,
+   "rm_score": -0.40655040740966797,
+   "kl": 0.4432375133037567,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.5625,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.84375,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : (q ∧ q ∧ p → p → p → p) ∨ (p → p) :=",
+     "answer": "Or.inr (fun h0 h1 h2 => h0)",
+     "status": "finished",
+     "score": -1.5474,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (p : Prop) : (∀ x, P x) → (∃ x, ¬P x) → ¬p :=",
+     "answer": "fun h0 ⟨x, h1⟩ h2 => h2 (h0 x)",
+     "status": "finished",
+     "score": 0.5155,
+     "ok": false
+    },
+    {
+     "prompt": "example : 17 - 9 =",
+     "answer": "8 := by decide",
+     "status": "finished",
+     "score": 0.3563,
+     "ok": true
+    }
+   ],
+   "policy_loss": 0.018372123828157783,
+   "clip_frac": 0.000292056065518409,
+   "k3": 0.01191820704843849,
+   "approx_kl": 4.0160651252563184e-05,
+   "value_loss": 0.0973346815444529,
+   "seconds": 6.201371908187866
+  },
+  {
+   "iteration": 133,
+   "score": -0.033698663115501404,
+   "rm_score": -0.08306553959846497,
+   "kl": 0.46677088737487793,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.03125,
+   "examples": [
+    {
+     "prompt": "example (r s : Prop) : ¬(s ∧ s) ∨ (r ↔ r) :=",
+     "answer": "Or.inr (fun h0 => h0)",
+     "status": "finished",
+     "score": -1.5651,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (q : Prop) : (∀ x, q → r x x) → ∀ x, ∃ y, q → r x y :=",
+     "answer": "fun h0 x => ⟨x, h0 x⟩",
+     "status": "finished",
+     "score": 0.0661,
+     "ok": true
+    },
+    {
+     "prompt": "example : 5 + 15 * 8 =",
+     "answer": "128 := by decide",
+     "status": "finished",
+     "score": -1.7769,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.009077051188796759,
+   "clip_frac": 0.0003188775444868952,
+   "k3": 0.013478637614753097,
+   "approx_kl": 6.468947557891624e-05,
+   "value_loss": 0.13073145505040884,
+   "seconds": 6.0283777713775635
+  },
+  {
+   "iteration": 134,
+   "score": -0.051649514585733414,
+   "rm_score": -0.13231822848320007,
+   "kl": 0.11449915170669556,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.6875,
+    "nat": 0.0,
+    "linear": 0.125
+   },
+   "answer_tokens": 23.296875,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : ¬((s → s) → s) → s → s ∨ s :=",
+     "answer": "fun h0 h1 => Or.inl h1",
+     "status": "finished",
+     "score": 0.8111,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (p : Prop) (a b : α) : (∀ x, (p ∧ R a) ∧ r x x ↔ P x → Q b) → ∀ x, P x → Q b ↔ (p ∧ R a) ∧ r x x :=",
+     "answer": "fun h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": 1.5722,
+     "ok": true
+    },
+    {
+     "prompt": "example : 14 / (2 + 12) =",
+     "answer": "2 := by decide",
+     "status": "finished",
+     "score": 1.212,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.00323890196159482,
+   "clip_frac": 0.00030562348547391593,
+   "k3": 0.011364337638951838,
+   "approx_kl": 6.057498562483943e-05,
+   "value_loss": 0.12190758064389229,
+   "seconds": 6.017276763916016
+  },
+  {
+   "iteration": 135,
+   "score": 0.06486030668020248,
+   "rm_score": 0.18735599517822266,
+   "kl": 0.3059737980365753,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.625,
+    "nat": 0.1875,
+    "linear": 0.0625
+   },
+   "answer_tokens": 23.875,
+   "examples": [
+    {
+     "prompt": "example (r s : Prop) : (s ∨ True → False) ∨ r → r :=",
+     "answer": "fun h0 => h0.2 trivial",
+     "status": "finished",
+     "score": -0.3312,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (p : Prop) (b : α) : (∀ x, p ∧ ¬R x) ∨ ¬Q b ∧ P b → ∀ x, p ∧ ¬R x ∨ ¬Q b ∧ P b :=",
+     "answer": "fun h0 x h1 => h0 h1 x",
+     "status": "finished",
+     "score": -0.6427,
+     "ok": false
+    },
+    {
+     "prompt": "example : 18 / 14 + 18 * 9 =",
+     "answer": "14 := by decide",
+     "status": "finished",
+     "score": -2.0762,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.002390462439507246,
+   "clip_frac": 0.00038580247201025486,
+   "k3": 0.009993553103413433,
+   "approx_kl": 4.4845364344681116e-05,
+   "value_loss": 0.10898250434547663,
+   "seconds": 5.47446870803833
+  },
+  {
+   "iteration": 136,
+   "score": -0.023949723690748215,
+   "rm_score": -0.05631682276725769,
+   "kl": 0.2960768938064575,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.5625,
+    "nat": 0.0625,
+    "linear": 0.1875
+   },
+   "answer_tokens": 23.375,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : (q ∨ (q ↔ q) ↔ q) → ¬(q ∧ q) → q :=",
+     "answer": "fun h0 h1 => h1",
+     "status": "finished",
+     "score": 0.1136,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (r : α → α → Prop) : (∀ x, r x x → ∃ y, R y) → (∃ x, r x x) → ∃ x, R x :=",
+     "answer": "fun h0 ⟨x, h1⟩ => ⟨x, h0 x h1⟩",
+     "status": "finished",
+     "score": -0.2209,
+     "ok": false
+    },
+    {
+     "prompt": "example : 13 - 17 =",
+     "answer": "4 := by decide",
+     "status": "finished",
+     "score": -0.918,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.008048444520682096,
+   "clip_frac": 0.0006940599123481661,
+   "k3": 0.013432278763502836,
+   "approx_kl": 8.110110988468702e-05,
+   "value_loss": 0.11273547075688839,
+   "seconds": 5.367985725402832
+  },
+  {
+   "iteration": 137,
+   "score": 0.0011915862560272217,
+   "rm_score": 0.012664727866649628,
+   "kl": 0.2727205455303192,
+   "accuracy": 0.34375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.8125,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.96875,
+   "examples": [
+    {
+     "prompt": "example (p q s : Prop) : ((s → q) → p ∨ q) ∨ s → p → p :=",
+     "answer": "fun h0 h1 => h1",
+     "status": "finished",
+     "score": -0.6841,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (a : α) : (∃ x, Q a ∧ R x) → (∀ x, Q a ∧ R x → P x) → ∃ x, P x :=",
+     "answer": "fun ⟨x, h0⟩ h1 => ⟨x, h1 x h0⟩",
+     "status": "finished",
+     "score": 1.9002,
+     "ok": true
+    },
+    {
+     "prompt": "example : 18 % (0 + 13) =",
+     "answer": "10 := by decide",
+     "status": "finished",
+     "score": -0.0034,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.015658834599889815,
+   "clip_frac": 0.0006738007359672338,
+   "k3": 0.017845265479991212,
+   "approx_kl": 7.319567224329233e-05,
+   "value_loss": 0.12953862082213163,
+   "seconds": 5.876861333847046
+  },
+  {
+   "iteration": 138,
+   "score": -0.1534338742494583,
+   "rm_score": -0.41158950328826904,
+   "kl": 0.28505852818489075,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.375,
+    "fol": 0.625,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.34375,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : (q → (r ↔ q)) ∨ (r → r ∧ (¬s ∨ r)) :=",
+     "answer": "Or.inl (fun h0 => ⟨fun h1 => h1, fun h1 => h1⟩)",
+     "status": "finished",
+     "score": 0.2646,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P : α → Prop) (r : α → α → Prop) (p : Prop) (b : α) : ∀ x, (¬r x b → P b) ∧ ¬p → ∃ y, (¬r y b → P b) ∧ ¬p :=",
+     "answer": "fun x h0 => ⟨x, h0⟩",
+     "status": "finished",
+     "score": 0.4223,
+     "ok": true
+    },
+    {
+     "prompt": "example : 19 * (5 * 20) =",
+     "answer": "1300 := by decide",
+     "status": "finished",
+     "score": -1.9182,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.01706267287954688,
+   "clip_frac": 0.0,
+   "k3": 0.008324425318278372,
+   "approx_kl": 6.028376037647831e-05,
+   "value_loss": 0.08882338600233197,
+   "seconds": 7.137017250061035
+  },
+  {
+   "iteration": 139,
+   "score": -0.054380420595407486,
+   "rm_score": -0.139811173081398,
+   "kl": 0.5149655342102051,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0,
+    "fol": 0.8125,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 25.125,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : (q ∨ s ↔ r) → s ∨ (q → q) :=",
+     "answer": "fun h0 => Or.inr (Or.inr (fun h1 => h1))",
+     "status": "finished",
+     "score": -0.4102,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (r : α → α → Prop) (p q : Prop) (a : α) : (¬p ∨ Q a) ∨ q → (∀ x, True → (r a a ∨ R a) ∧ P x) → ∀ x, (r a a ∨ R a) ∧ P x :=",
+     "answer": "fun _ h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": -0.5971,
+     "ok": false
+    },
+    {
+     "prompt": "example : 0 * 12 % 9 =",
+     "answer": "10 := by decide",
+     "status": "finished",
+     "score": 0.1908,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.011669917905237526,
+   "clip_frac": 0.0,
+   "k3": 0.014494032366201282,
+   "approx_kl": 3.2851568931846487e-05,
+   "value_loss": 0.11594648007303476,
+   "seconds": 5.548024415969849
+  },
+  {
+   "iteration": 140,
+   "score": 0.14045119285583496,
+   "rm_score": 0.39475885033607483,
+   "kl": 0.5049291253089905,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.5625,
+    "nat": 0.25,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.046875,
+   "examples": [
+    {
+     "prompt": "example (p q : Prop) : ¬(p → q ∨ q) → p → p :=",
+     "answer": "by intro h0; trivial",
+     "status": "finished",
+     "score": 0.1565,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (r : α → α → Prop) (p : Prop) : ¬(∃ x, p → r x x) → ∀ x, ¬(p → r x x) :=",
+     "answer": "fun h0 x h1 => h0 ⟨x, Or.inl h1⟩",
+     "status": "finished",
+     "score": -0.9501,
+     "ok": false
+    },
+    {
+     "prompt": "example : 4 + 16 =",
+     "answer": "18 := by decide",
+     "status": "finished",
+     "score": 1.4962,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0011448061850387603,
+   "clip_frac": 0.0013812155229970813,
+   "k3": 0.016040328424423933,
+   "approx_kl": 0.00011491419613207654,
+   "value_loss": 0.17442834563553333,
+   "seconds": 4.5967936515808105
+  },
+  {
+   "iteration": 141,
+   "score": -0.10419425368309021,
+   "rm_score": -0.2764880955219269,
+   "kl": 0.23737534880638123,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.6875,
+    "nat": 0.125,
+    "linear": 0.125
+   },
+   "answer_tokens": 22.328125,
+   "examples": [
+    {
+     "prompt": "example (p r : Prop) : (p → p) ∨ p → r → r :=",
+     "answer": "fun h0 h1 => h1",
+     "status": "finished",
+     "score": 0.1908,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (R : α → Prop) (q : Prop) (b : α) : (∀ x, R x) → ¬R b → q :=",
+     "answer": "fun h0 => h0 b",
+     "status": "finished",
+     "score": -0.9121,
+     "ok": false
+    },
+    {
+     "prompt": "example : 16 * (3 + 17) =",
+     "answer": "446 := by decide",
+     "status": "finished",
+     "score": 1.119,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.007271412177942693,
+   "clip_frac": 0.00035410764394328,
+   "k3": 0.008431371650658548,
+   "approx_kl": 5.091039214022669e-05,
+   "value_loss": 0.12785586528480053,
+   "seconds": 5.778521776199341
+  },
+  {
+   "iteration": 142,
+   "score": 0.1442742943763733,
+   "rm_score": 0.4052485227584839,
+   "kl": 0.17081619799137115,
+   "accuracy": 0.375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.5625,
+    "fol": 0.8125,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 23.859375,
+   "examples": [
+    {
+     "prompt": "example (q s : Prop) : q ∧ q → (False ∨ q) ∨ (q ↔ s) :=",
+     "answer": "fun h0 => Or.inl h0.1",
+     "status": "finished",
+     "score": -0.6834,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (Q : α → Prop) (r : α → α → Prop) (a : α) : (∃ x, Q x) ∨ (∃ x, r a a → r x x) → ∃ x, Q x ∨ (r a a → r x x) :=",
+     "answer": "fun ⟨h0, x, h1⟩ => ⟨x, h0, h1⟩",
+     "status": "finished",
+     "score": 1.3175,
+     "ok": false
+    },
+    {
+     "prompt": "example : 19 * 3 - 0 =",
+     "answer": "22 := by decide",
+     "status": "finished",
+     "score": -0.234,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.00829267455264926,
+   "clip_frac": 0.0,
+   "k3": 0.007908613537438214,
+   "approx_kl": 2.232510312083491e-05,
+   "value_loss": 0.1208356749266386,
+   "seconds": 5.735284328460693
+  },
+  {
+   "iteration": 143,
+   "score": -0.02103428542613983,
+   "rm_score": -0.048317521810531616,
+   "kl": 0.34938159584999084,
+   "accuracy": 0.234375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.125,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.0
+   },
+   "answer_tokens": 21.234375,
+   "examples": [
+    {
+     "prompt": "example (s : Prop) : (s ∨ s) ∧ (s → s → s) ↔ s :=",
+     "answer": "⟨fun h0 => h0.2, fun h0 => ⟨fun h1 => h0, h1⟩⟩",
+     "status": "finished",
+     "score": 0.8934,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (b : α) : (∀ x, ¬P x) → ¬¬P b → ∃ x, ¬Q x :=",
+     "answer": "fun h0 h1 => absurd (h0 b) h1",
+     "status": "finished",
+     "score": -0.8025,
+     "ok": true
+    },
+    {
+     "prompt": "example : 12 - 13 % 11 - 0 =",
+     "answer": "8 := by decide",
+     "status": "finished",
+     "score": -1.8278,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.003407721422263421,
+   "clip_frac": 0.000830564764328301,
+   "k3": 0.017781582078896463,
+   "approx_kl": 5.8064654481881917e-05,
+   "value_loss": 0.15953314490616322,
+   "seconds": 4.901522397994995
+  },
+  {
+   "iteration": 144,
+   "score": 0.11066041141748428,
+   "rm_score": 0.313020259141922,
+   "kl": 0.1539667546749115,
+   "accuracy": 0.3125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.0,
+    "linear": 0.1875
+   },
+   "answer_tokens": 21.875,
+   "examples": [
+    {
+     "prompt": "example (q : Prop) : q → q → q → q ∨ ¬q :=",
+     "answer": "fun h0 h1 h2 => Or.inr h0",
+     "status": "finished",
+     "score": 0.4655,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) (b : α) : (∀ x, Q x ∨ P x ↔ ¬R x) → ¬(Q b ∨ P b) → ¬¬R b :=",
+     "answer": "fun h0 h1 h2 => h1 ((h0 b).2 h2)",
+     "status": "finished",
+     "score": -0.8839,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 * (17 - 2) =",
+     "answer": "80 := by decide",
+     "status": "finished",
+     "score": -0.7313,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.00584144436288625,
+   "clip_frac": 0.0,
+   "k3": 0.00801448104903102,
+   "approx_kl": 2.8066965398924917e-05,
+   "value_loss": 0.13156693521887064,
+   "seconds": 5.187344551086426
+  },
+  {
+   "iteration": 145,
+   "score": 3.835931420326233e-05,
+   "rm_score": 0.009500548243522644,
+   "kl": 0.10313127189874649,
+   "accuracy": 0.375,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.75,
+    "nat": 0.25,
+    "linear": 0.1875
+   },
+   "answer_tokens": 22.515625,
+   "examples": [
+    {
+     "prompt": "example (p s : Prop) : p → (p ∨ p) ∨ (p ↔ s) :=",
+     "answer": "fun h0 => Or.inr ⟨fun h1 => h1, fun h1 => h1⟩",
+     "status": "finished",
+     "score": -0.1734,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (r : α → α → Prop) (b : α) : ¬P b → ∀ x, r x x ∧ Q x ∨ ¬P b :=",
+     "answer": "fun h0 _ => Or.inr h0",
+     "status": "finished",
+     "score": 0.4037,
+     "ok": true
+    },
+    {
+     "prompt": "example : 7 * 9 + 7 =",
+     "answer": "104 := by decide",
+     "status": "finished",
+     "score": -1.7575,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.005000410106731579,
+   "clip_frac": 0.0,
+   "k3": 0.0068422501208260655,
+   "approx_kl": 2.9007856866808134e-05,
+   "value_loss": 0.11545205488801003,
+   "seconds": 5.99963903427124
+  },
+  {
+   "iteration": 146,
+   "score": 0.012650683522224426,
+   "rm_score": 0.0441056489944458,
+   "kl": 0.3540557622909546,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.875,
+    "nat": 0.1875,
+    "linear": 0.0
+   },
+   "answer_tokens": 23.421875,
+   "examples": [
+    {
+     "prompt": "example (p : Prop) : ¬(¬p ↔ p ∨ p) ↔ ¬p → ¬p :=",
+     "answer": "⟨fun h0 h1 h2 => h2.2 h2, fun h0 => trivial⟩",
+     "status": "finished",
+     "score": -2.1174,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P R : α → Prop) (r : α → α → Prop) (a b : α) : P a → (∃ x, ∀ y, P a ∧ R b ∨ r y x) → ∀ x, ∃ y, P a ∧ R b ∨ r x y :=",
+     "answer": "fun _ ⟨x, h0⟩ y => ⟨x, h0 y⟩",
+     "status": "finished",
+     "score": 1.6626,
+     "ok": true
+    },
+    {
+     "prompt": "example : 0 * 5 + 20 =",
+     "answer": "20 := by decide",
+     "status": "finished",
+     "score": 0.2555,
+     "ok": true
+    }
+   ],
+   "policy_loss": 5.675421743944753e-05,
+   "clip_frac": 0.00029761905898340046,
+   "k3": 0.015043309424072504,
+   "approx_kl": 3.1221503071776624e-05,
+   "value_loss": 0.12940424587577581,
+   "seconds": 5.038835048675537
+  },
+  {
+   "iteration": 147,
+   "score": 0.009843077510595322,
+   "rm_score": 0.21103762090206146,
+   "kl": 0.21229305863380432,
+   "accuracy": 0.265625,
+   "finished": 0.984375,
+   "accuracy_by_domain": {
+    "prop": 0.0625,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.25
+   },
+   "answer_tokens": 26.296875,
+   "examples": [
+    {
+     "prompt": "example (p r s : Prop) : r ∧ r → ((s ↔ p) ∨ r ↔ s ∧ p) → r :=",
+     "answer": "fun h0 h1 => h0.2.1",
+     "status": "finished",
+     "score": -1.1749,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q : α → Prop) (r : α → α → Prop) (p q : Prop) (a b : α) : ¬r b a ∨ P b ∨ q → Q b ∧ p → ∃ x, (¬r x a ∨ P x ∨ q) ∧ Q x ∧ p :=",
+     "answer": "fun h0 h1 => ⟨b, h0, h1⟩",
+     "status": "finished",
+     "score": 1.5432,
+     "ok": true
+    },
+    {
+     "prompt": "example : 13 / 9 =",
+     "answer": "4 := by decide",
+     "status": "finished",
+     "score": 0.1321,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.025408616638742387,
+   "clip_frac": 0.0006134437571745366,
+   "k3": 0.01219862385187298,
+   "approx_kl": 6.168017836297954e-05,
+   "value_loss": 0.151733853854239,
+   "seconds": 7.7319042682647705
+  },
+  {
+   "iteration": 148,
+   "score": -0.05603138357400894,
+   "rm_score": -0.14434102177619934,
+   "kl": 0.31515687704086304,
+   "accuracy": 0.25,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.1875,
+    "fol": 0.625,
+    "nat": 0.125,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.96875,
+   "examples": [
+    {
+     "prompt": "example (r s : Prop) : (r → ¬r) → s → s :=",
+     "answer": "fun h0 h1 => h1",
+     "status": "finished",
+     "score": -0.1213,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (r : α → α → Prop) (p : Prop) (a : α) : (∀ x, r x x ∧ R a ∧ Q x ∧ p) → ∀ x, (R a ∧ Q x ∧ p) ∧ r x x :=",
+     "answer": "fun h0 x => ⟨(h0 x).2, (h0 x).1⟩",
+     "status": "finished",
+     "score": 1.2532,
+     "ok": true
+    },
+    {
+     "prompt": "example : 10 + 9 * (5 * 5) =",
+     "answer": "264 := by decide",
+     "status": "finished",
+     "score": -1.2316,
+     "ok": false
+    }
+   ],
+   "policy_loss": -0.0017378642223775387,
+   "clip_frac": 0.0008757858886383474,
+   "k3": 0.013531545409932733,
+   "approx_kl": 5.776635855170298e-05,
+   "value_loss": 0.12450259644538164,
+   "seconds": 5.694702625274658
+  },
+  {
+   "iteration": 149,
+   "score": -0.04358387365937233,
+   "rm_score": -0.11018815636634827,
+   "kl": 0.548196017742157,
+   "accuracy": 0.296875,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.25,
+    "fol": 0.75,
+    "nat": 0.0625,
+    "linear": 0.125
+   },
+   "answer_tokens": 27.3125,
+   "examples": [
+    {
+     "prompt": "example (q r s : Prop) : q ∨ s → s ∨ q ∧ (r → q) :=",
+     "answer": "fun h0 => Or.inl (Or.inr h0)",
+     "status": "finished",
+     "score": 0.2893,
+     "ok": false
+    },
+    {
+     "prompt": "example (α : Type) (P Q R : α → Prop) : (∃ x, R x) → (∀ x, P x ↔ ¬Q x) → ∀ x, ¬Q x ↔ P x :=",
+     "answer": "fun ⟨x, h0⟩ h1 => ⟨fun h2 => (h2).1 h2, fun h2 => (h0 x).1 h2⟩",
+     "status": "finished",
+     "score": -1.4123,
+     "ok": false
+    },
+    {
+     "prompt": "example : 3 * (18 + 7) =",
+     "answer": "35 := by decide",
+     "status": "finished",
+     "score": -1.2305,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0021604010835289955,
+   "clip_frac": 0.0005476457881741226,
+   "k3": 0.013341834710445255,
+   "approx_kl": 6.171402451116137e-05,
+   "value_loss": 0.12415625620633364,
+   "seconds": 6.46057653427124
+  },
+  {
+   "iteration": 150,
+   "score": 0.05401699244976044,
+   "rm_score": 0.1576046496629715,
+   "kl": 0.21115626394748688,
+   "accuracy": 0.28125,
+   "finished": 1.0,
+   "accuracy_by_domain": {
+    "prop": 0.3125,
+    "fol": 0.6875,
+    "nat": 0.0625,
+    "linear": 0.0625
+   },
+   "answer_tokens": 24.375,
+   "examples": [
+    {
+     "prompt": "example (p q r s : Prop) : r → ¬(q ∧ (s → p)) → r :=",
+     "answer": "by intro h0 h1; trivial",
+     "status": "finished",
+     "score": 1.1676,
+     "ok": true
+    },
+    {
+     "prompt": "example (α : Type) (Q R : α → Prop) (r : α → α → Prop) (p q : Prop) (a b : α) : (r a a → q → p) → (∀ x, ¬R x → Q b) → ¬R b → ∃ x, Q x :=",
+     "answer": "fun h0 h1 => ⟨b, h0 a h1⟩",
+     "status": "finished",
+     "score": 0.6512,
+     "ok": false
+    },
+    {
+     "prompt": "example : 18 * (13 * 16 + 3) =",
+     "answer": "3456 := by decide",
+     "status": "finished",
+     "score": -1.4321,
+     "ok": false
+    }
+   ],
+   "policy_loss": 0.0021788422018289566,
+   "clip_frac": 0.0013345195911824703,
+   "k3": 0.010392374184448272,
+   "approx_kl": 8.72989695750448e-05,
+   "value_loss": 0.11702082632109523,
+   "seconds": 6.158221483230591
   }
  ],
  "evals": [
@@ -2170,6 +6790,337 @@
      "accuracy": 0.33
     }
    }
+  },
+  {
+   "iteration": 50,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 18,
+     "accuracy": 0.24
+    },
+    "fol": {
+     "n": 75,
+     "correct": 60,
+     "accuracy": 0.8
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 10,
+     "accuracy": 0.13333333333333333
+    },
+    "all": {
+     "n": 300,
+     "correct": 99,
+     "accuracy": 0.33
+    }
+   }
+  },
+  {
+   "iteration": 60,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 18,
+     "accuracy": 0.24
+    },
+    "fol": {
+     "n": 75,
+     "correct": 62,
+     "accuracy": 0.8266666666666667
+    },
+    "nat": {
+     "n": 75,
+     "correct": 15,
+     "accuracy": 0.2
+    },
+    "linear": {
+     "n": 75,
+     "correct": 12,
+     "accuracy": 0.16
+    },
+    "all": {
+     "n": 300,
+     "correct": 107,
+     "accuracy": 0.3566666666666667
+    }
+   }
+  },
+  {
+   "iteration": 70,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 18,
+     "accuracy": 0.24
+    },
+    "fol": {
+     "n": 75,
+     "correct": 60,
+     "accuracy": 0.8
+    },
+    "nat": {
+     "n": 75,
+     "correct": 12,
+     "accuracy": 0.16
+    },
+    "linear": {
+     "n": 75,
+     "correct": 12,
+     "accuracy": 0.16
+    },
+    "all": {
+     "n": 300,
+     "correct": 102,
+     "accuracy": 0.34
+    }
+   }
+  },
+  {
+   "iteration": 80,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 17,
+     "accuracy": 0.22666666666666666
+    },
+    "fol": {
+     "n": 75,
+     "correct": 61,
+     "accuracy": 0.8133333333333334
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 13,
+     "accuracy": 0.17333333333333334
+    },
+    "all": {
+     "n": 300,
+     "correct": 102,
+     "accuracy": 0.34
+    }
+   }
+  },
+  {
+   "iteration": 90,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 18,
+     "accuracy": 0.24
+    },
+    "fol": {
+     "n": 75,
+     "correct": 59,
+     "accuracy": 0.7866666666666666
+    },
+    "nat": {
+     "n": 75,
+     "correct": 13,
+     "accuracy": 0.17333333333333334
+    },
+    "linear": {
+     "n": 75,
+     "correct": 13,
+     "accuracy": 0.17333333333333334
+    },
+    "all": {
+     "n": 300,
+     "correct": 103,
+     "accuracy": 0.3433333333333333
+    }
+   }
+  },
+  {
+   "iteration": 100,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 17,
+     "accuracy": 0.22666666666666666
+    },
+    "fol": {
+     "n": 75,
+     "correct": 60,
+     "accuracy": 0.8
+    },
+    "nat": {
+     "n": 75,
+     "correct": 10,
+     "accuracy": 0.13333333333333333
+    },
+    "linear": {
+     "n": 75,
+     "correct": 10,
+     "accuracy": 0.13333333333333333
+    },
+    "all": {
+     "n": 300,
+     "correct": 97,
+     "accuracy": 0.3233333333333333
+    }
+   }
+  },
+  {
+   "iteration": 110,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 60,
+     "accuracy": 0.8
+    },
+    "nat": {
+     "n": 75,
+     "correct": 10,
+     "accuracy": 0.13333333333333333
+    },
+    "linear": {
+     "n": 75,
+     "correct": 12,
+     "accuracy": 0.16
+    },
+    "all": {
+     "n": 300,
+     "correct": 101,
+     "accuracy": 0.33666666666666667
+    }
+   }
+  },
+  {
+   "iteration": 120,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 61,
+     "accuracy": 0.8133333333333334
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "all": {
+     "n": 300,
+     "correct": 102,
+     "accuracy": 0.34
+    }
+   }
+  },
+  {
+   "iteration": 130,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 21,
+     "accuracy": 0.28
+    },
+    "fol": {
+     "n": 75,
+     "correct": 63,
+     "accuracy": 0.84
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 9,
+     "accuracy": 0.12
+    },
+    "all": {
+     "n": 300,
+     "correct": 104,
+     "accuracy": 0.3466666666666667
+    }
+   }
+  },
+  {
+   "iteration": 140,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 18,
+     "accuracy": 0.24
+    },
+    "fol": {
+     "n": 75,
+     "correct": 61,
+     "accuracy": 0.8133333333333334
+    },
+    "nat": {
+     "n": 75,
+     "correct": 13,
+     "accuracy": 0.17333333333333334
+    },
+    "linear": {
+     "n": 75,
+     "correct": 9,
+     "accuracy": 0.12
+    },
+    "all": {
+     "n": 300,
+     "correct": 101,
+     "accuracy": 0.33666666666666667
+    }
+   }
+  },
+  {
+   "iteration": 150,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 20,
+     "accuracy": 0.26666666666666666
+    },
+    "fol": {
+     "n": 75,
+     "correct": 63,
+     "accuracy": 0.84
+    },
+    "nat": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "linear": {
+     "n": 75,
+     "correct": 9,
+     "accuracy": 0.12
+    },
+    "all": {
+     "n": 300,
+     "correct": 103,
+     "accuracy": 0.3433333333333333
+    }
+   }
   }
- ]
+ ],
+ "selected_iteration": 150
 }

@@ -1,0 +1,223 @@
+{
+ "stage": "rft",
+ "preset": "small",
+ "config": {
+  "sft": "out/sft.pt",
+  "out": "out/rft_s3.pt",
+  "domains": "all",
+  "rounds": 2,
+  "prompts_per_round": 1200,
+  "samples_per_prompt": 4,
+  "temperature": 1.0,
+  "max_new_tokens": 200,
+  "keep_per_prompt": 1,
+  "replay_frac": 0.0,
+  "epochs_per_round": 3.0,
+  "iters_per_round": 300,
+  "batch_size": 64,
+  "lr": 0.0001,
+  "min_lr": 1e-05,
+  "warmup_iters": 20,
+  "weight_decay": 0.0,
+  "grad_clip": 1.0,
+  "eval_problems": 75,
+  "seed": 3,
+  "device": "auto"
+ },
+ "sft": {
+  "path": "out/sft.pt",
+  "stage": "sft"
+ },
+ "policy_samples": 9600,
+ "rounds": [
+  {
+   "round": 1,
+   "yield": {
+    "prop": 0.4266666666666667,
+    "fol": 0.8933333333333333,
+    "nat": 0.33,
+    "linear": 0.42333333333333334
+   },
+   "sample_accuracy": {
+    "prop": 0.24333333333333335,
+    "fol": 0.7191666666666666,
+    "nat": 0.1425,
+    "linear": 0.13083333333333333
+   },
+   "examples": 622,
+   "finished": 0.9995833333333334,
+   "train_loss": 0.03796260350694259,
+   "final_loss": 0.040084823966026306,
+   "steps": 30,
+   "val": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 59,
+     "accuracy": 0.7866666666666666
+    },
+    "nat": {
+     "n": 75,
+     "correct": 13,
+     "accuracy": 0.17333333333333334
+    },
+    "linear": {
+     "n": 75,
+     "correct": 6,
+     "accuracy": 0.08
+    },
+    "all": {
+     "n": 300,
+     "correct": 97,
+     "accuracy": 0.3233333333333333
+    }
+   },
+   "seconds": 110.40200304985046
+  },
+  {
+   "round": 2,
+   "yield": {
+    "prop": 0.4166666666666667,
+    "fol": 0.88,
+    "nat": 0.26666666666666666,
+    "linear": 0.28
+   },
+   "sample_accuracy": {
+    "prop": 0.25333333333333335,
+    "fol": 0.72,
+    "nat": 0.11166666666666666,
+    "linear": 0.09833333333333333
+   },
+   "examples": 553,
+   "finished": 1.0,
+   "train_loss": 0.029658096842467785,
+   "final_loss": 0.021340345963835716,
+   "steps": 26,
+   "val": {
+    "prop": {
+     "n": 75,
+     "correct": 21,
+     "accuracy": 0.28
+    },
+    "fol": {
+     "n": 75,
+     "correct": 56,
+     "accuracy": 0.7466666666666667
+    },
+    "nat": {
+     "n": 75,
+     "correct": 10,
+     "accuracy": 0.13333333333333333
+    },
+    "linear": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "all": {
+     "n": 300,
+     "correct": 98,
+     "accuracy": 0.32666666666666666
+    }
+   },
+   "seconds": 71.41347479820251
+  }
+ ],
+ "evals": [
+  {
+   "round": 0,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 60,
+     "accuracy": 0.8
+    },
+    "nat": {
+     "n": 75,
+     "correct": 14,
+     "accuracy": 0.18666666666666668
+    },
+    "linear": {
+     "n": 75,
+     "correct": 3,
+     "accuracy": 0.04
+    },
+    "all": {
+     "n": 300,
+     "correct": 96,
+     "accuracy": 0.32
+    }
+   }
+  },
+  {
+   "round": 1,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 19,
+     "accuracy": 0.25333333333333335
+    },
+    "fol": {
+     "n": 75,
+     "correct": 59,
+     "accuracy": 0.7866666666666666
+    },
+    "nat": {
+     "n": 75,
+     "correct": 13,
+     "accuracy": 0.17333333333333334
+    },
+    "linear": {
+     "n": 75,
+     "correct": 6,
+     "accuracy": 0.08
+    },
+    "all": {
+     "n": 300,
+     "correct": 97,
+     "accuracy": 0.3233333333333333
+    }
+   }
+  },
+  {
+   "round": 2,
+   "results": {
+    "prop": {
+     "n": 75,
+     "correct": 21,
+     "accuracy": 0.28
+    },
+    "fol": {
+     "n": 75,
+     "correct": 56,
+     "accuracy": 0.7466666666666667
+    },
+    "nat": {
+     "n": 75,
+     "correct": 10,
+     "accuracy": 0.13333333333333333
+    },
+    "linear": {
+     "n": 75,
+     "correct": 11,
+     "accuracy": 0.14666666666666667
+    },
+    "all": {
+     "n": 300,
+     "correct": 98,
+     "accuracy": 0.32666666666666666
+    }
+   }
+  }
+ ],
+ "policy_samples_drawn": 9600
+}

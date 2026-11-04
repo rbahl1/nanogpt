@@ -17,9 +17,10 @@
 |---|--:|--:|--:|--:|--:|--:|
 | ppochecker_s1 | 30.9 | 25.8 | -0.381 | -0.484 | 0.109 | 32.0 → 34.0 |
 | ppochecker_s2 | 28.1 | 29.2 | -0.438 | -0.416 | 0.121 | 32.0 → 36.0 |
+| ppochecker_s3 | 31.1 | 30.8 | -0.378 | -0.384 | 0.103 | 32.0 → 34.0 |
 | rlhf_s1 | 28.7 | 25.3 | -0.044 | -0.029 | 0.356 | 32.0 → 33.7 |
 | rlhf_s2 | 29.4 | 27.0 | -0.022 | -0.027 | 0.364 | 32.0 → 32.7 |
-| rlhf_s3 | 29.4 | 30.2 | -0.049 | -0.030 | 0.223 | 32.0 → 33.0 |
+| rlhf_s3 | 29.4 | 29.5 | -0.049 | +0.011 | 0.266 | 32.0 → 34.3 |
 
 ## Rejection-sampling fine-tuning rounds
 
@@ -27,6 +28,8 @@
 - rft_s1 round 2: 582 verified examples (yield prop 0.42, fol 0.88, nat 0.33, linear 0.31), 28 steps, val accuracy 34.3%
 - rft_s2 round 1: 606 verified examples (yield prop 0.43, fol 0.92, nat 0.36, linear 0.31), 29 steps, val accuracy 31.3%
 - rft_s2 round 2: 543 verified examples (yield prop 0.39, fol 0.86, nat 0.27, linear 0.29), 26 steps, val accuracy 32.0%
+- rft_s3 round 1: 622 verified examples (yield prop 0.43, fol 0.89, nat 0.33, linear 0.42), 30 steps, val accuracy 32.3%
+- rft_s3 round 2: 553 verified examples (yield prop 0.42, fol 0.88, nat 0.27, linear 0.28), 26 steps, val accuracy 32.7%
 
 ## SFT validation accuracy
 
