@@ -9,8 +9,8 @@
 #   rlhf_s*        PPO against a learned reward model (RLHF)
 #   ppochecker_s*  PPO against the checker itself
 #   rft_s*         rejection-sampling fine-tuning: keep verified samples, fine-tune
-#   sftplus_s*     control: 600 more SFT steps on fresh reference proofs
-#                  (the same number of optimiser steps and batch size as RFT)
+#   sftplus_s*     control: 600 more SFT steps on fresh reference proofs (about ten
+#                  times RFT's optimiser steps: RFT trains 3 epochs on ~600 kept answers per round)
 #
 # Usage: LEAN=/path/to/lean ./run_experiment.sh [out_dir] [results_dir]
 set -euo pipefail
