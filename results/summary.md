@@ -15,8 +15,8 @@
 
 | run | rollout acc, first 10 iters | last 10 iters | score first 10 | last 10 | KL last 10 | val acc start → end |
 |---|--:|--:|--:|--:|--:|--:|
-| ppochecker_s1 | 30.9 | 27.5 | -0.381 | -0.452 | 0.101 | 32.0 → 33.7 |
-| rlhf_s1 | 28.7 | 27.7 | -0.044 | -0.069 | 0.213 | 32.0 → 32.3 |
+| ppochecker_s1 | 30.9 | 25.8 | -0.381 | -0.484 | 0.109 | 32.0 → 34.0 |
+| rlhf_s1 | 28.7 | 25.3 | -0.044 | -0.029 | 0.356 | 32.0 → 33.7 |
 
 ## SFT validation accuracy
 

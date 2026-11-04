@@ -1,0 +1,2 @@
+rft: 2 rounds x 1200 prompts x 4 samples = 9,600 policy samples, from out/sft.pt (sft), device cpu
+  val after round 0: prop 0.253 (19/75), fol 0.800 (60/75), nat 0.187 (14/75), linear 0.040 (3/75), all 0.320 (96/300)
