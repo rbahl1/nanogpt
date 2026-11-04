@@ -15,7 +15,7 @@ optimiser state; about 3.4 MB each):
 
 Load one with `common.load_checkpoint(path, "cpu")`, or try it:
 
-    python sample.py checkpoints/sft.pt "example (p q : Prop) : p ∧ q → q ∧ p :="
+    python sample.py checkpoints/sft.pt --prompt "example (p q : Prop) : p ∧ q → q ∧ p :="
     python evaluate.py --preset small checkpoints/sft.pt --n 100
     python export_web.py checkpoints/sft.pt --out web/dist   # the in-browser chat page
 

@@ -100,7 +100,7 @@ python rft.py      --preset small --sft out/sft.pt --out out/rft.pt
 python evaluate.py --preset small out/sft.pt out/rlhf.pt out/rft.pt --lean true --json results/eval.json
 python stats.py results/eval.json --baseline sft
 
-python sample.py out/rlhf.pt "example (p q : Prop) : p ∧ q → q ∧ p :="
+python sample.py out/rlhf.pt --prompt "example (p q : Prop) : p ∧ q → q ∧ p :="
 python export_web.py out/rlhf.pt --out web/dist && python -m http.server -d web/dist   # in-browser chat page
 ```
 
