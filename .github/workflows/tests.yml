@@ -1,0 +1,37 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Tests, Lean cross-checks and a tiny end-to-end run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      # The CPU wheel: the default one pulls in several GB of CUDA libraries.
+      - name: Install Python dependencies
+        run: |
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install numpy scipy pytest
+      # Core Lean only (no Mathlib): the tests compile generated declarations and
+      # every checker-accepted fuzz mutant with it. Without it they are skipped.
+      - name: Install Lean 4
+        run: |
+          curl -sSfL https://github.com/leanprover/lean4/releases/download/v4.34.0/lean-4.34.0-linux.tar.zst \
+            | tar --zstd -x -C "$RUNNER_TEMP"
+          echo "LEAN=$RUNNER_TEMP/lean-4.34.0-linux/bin/lean" >> "$GITHUB_ENV"
+      - name: Run tests
+        run: python -m pytest -q

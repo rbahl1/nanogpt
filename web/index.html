@@ -1,0 +1,588 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lean 4 nanoGPT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --bg: #f4f5f8;
+    --surface: #ffffff;
+    --sunken: #eceff4;
+    --ink: #161b26;
+    --muted: #596275;
+    --line: #dce0e8;
+    --accent: #3552c8;
+    --accent-soft: #e4e9fb;
+    --accent-ink: #ffffff;
+    --ok: #1c7a4b;
+    --ok-soft: #e1f3e9;
+    --bad: #b1372b;
+    --bad-soft: #fbe6e3;
+    --warn: #86660f;
+    --warn-soft: #f7efd6;
+    --prompt-ink: #5a6376;
+    --mono: "JetBrains Mono", "DejaVu Sans Mono", Menlo, Consolas, "Noto Sans Math", "Cambria Math", monospace;
+    --sans: "Instrument Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0e1117;
+      --surface: #161a22;
+      --sunken: #1c212b;
+      --ink: #e4e7ee;
+      --muted: #98a1b2;
+      --line: #282e3a;
+      --accent: #8aa2ff;
+      --accent-soft: #232b48;
+      --accent-ink: #0e1117;
+      --ok: #5cc890;
+      --ok-soft: #173327;
+      --bad: #f08074;
+      --bad-soft: #3a1d1a;
+      --warn: #dcb75d;
+      --warn-soft: #352b12;
+      --prompt-ink: #8c95a7;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0e1117;
+    --surface: #161a22;
+    --sunken: #1c212b;
+    --ink: #e4e7ee;
+    --muted: #98a1b2;
+    --line: #282e3a;
+    --accent: #8aa2ff;
+    --accent-soft: #232b48;
+    --accent-ink: #0e1117;
+    --ok: #5cc890;
+    --ok-soft: #173327;
+    --bad: #f08074;
+    --bad-soft: #3a1d1a;
+    --warn: #dcb75d;
+    --warn-soft: #352b12;
+    --prompt-ink: #8c95a7;
+  }
+
+  html, body { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.5 var(--sans);
+  }
+  .app {
+    box-sizing: border-box;
+    max-width: 880px;
+    height: 100%;
+    margin: 0 auto;
+    padding-inline: 16px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  header {
+    padding-block: 18px 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  h1 {
+    margin: 0;
+    font: 600 20px/1.2 var(--mono);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  h1 .turnstile { color: var(--accent); margin-right: 6px; }
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .card span {
+    padding: 2px 8px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    font-variant-numeric: tabular-nums;
+  }
+  .card .flag { border-color: var(--accent); color: var(--accent); }
+
+  .log {
+    overflow-y: auto;
+    padding-block: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .note {
+    color: var(--muted);
+    font-size: 13.5px;
+    max-width: 68ch;
+  }
+  .note code { font-family: var(--mono); font-size: 12.5px; }
+
+  .turn { display: grid; gap: 8px; }
+  .who {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .asked {
+    justify-self: end;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    font: 13.5px/1.55 var(--mono);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .answer {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .answer + .answer { margin-top: 2px; }
+  .answer pre {
+    margin: 0;
+    padding: 12px 14px;
+    overflow-x: auto;
+    font: 13.5px/1.6 var(--mono);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .answer pre .head { color: var(--prompt-ink); }
+  .answer pre .body { color: var(--ink); font-weight: 600; }
+  .answer pre .caret {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    vertical-align: text-bottom;
+    background: var(--accent);
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px 7px 14px;
+    border-top: 1px solid var(--line);
+    background: var(--sunken);
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .meta .spacer { flex: 1; }
+  .chip {
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .chip.ok { color: var(--ok); background: var(--ok-soft); }
+  .chip.bad { color: var(--bad); background: var(--bad-soft); }
+  .chip.warn { color: var(--warn); background: var(--warn-soft); }
+  .chip.plain { color: var(--muted); background: var(--surface); border: 1px solid var(--line); }
+  .error {
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: var(--bad-soft);
+    color: var(--bad);
+    font-size: 13.5px;
+  }
+
+  .composer {
+    padding-block: 10px 16px;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 10px;
+    background: var(--bg);
+  }
+  .examples { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 2px; }
+  .examples button {
+    flex: none;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--ink);
+    font: 12.5px var(--mono);
+    cursor: pointer;
+  }
+  .examples button:hover { border-color: var(--accent); }
+  .symbols { display: flex; flex-wrap: wrap; gap: 4px; }
+  .symbols button {
+    min-width: 30px;
+    padding: 3px 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    font: 14px var(--mono);
+    cursor: pointer;
+  }
+  .symbols button:hover { border-color: var(--accent); }
+  .entry { display: flex; gap: 8px; align-items: stretch; }
+  textarea {
+    flex: 1;
+    min-width: 0;
+    box-sizing: border-box;
+    min-height: 48px;
+    max-height: 160px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    font: 14px/1.5 var(--mono);
+    resize: vertical;
+  }
+  textarea:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+  }
+  .send {
+    padding: 0 18px;
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font: 600 14px var(--sans);
+    cursor: pointer;
+  }
+  .send:disabled { opacity: 0.5; cursor: default; }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .controls label { display: inline-flex; align-items: center; gap: 6px; }
+  .controls select, .controls input[type="number"] {
+    padding: 3px 6px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--surface);
+    color: var(--ink);
+    font: 13px var(--sans);
+  }
+  .controls input[type="range"] { width: 110px; accent-color: var(--accent); }
+  .controls output { font-variant-numeric: tabular-nums; min-width: 2.2em; }
+  .hint { font-size: 12.5px; color: var(--muted); }
+  .hint kbd {
+    font: 11.5px var(--mono);
+    padding: 0 4px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+  }
+  @media (max-width: 560px) {
+    .hint { display: none; }
+    .symbols { flex-wrap: nowrap; overflow-x: auto; }
+    .symbols button { flex: none; }
+    .composer { gap: 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .answer pre .caret { animation: none; }
+  }
+</style>
+
+<div class="app">
+  <header>
+    <h1><span class="turnstile">⊢</span>Lean 4 nanoGPT</h1>
+    <div class="card" id="card"><span>loading weights…</span></div>
+  </header>
+
+  <main class="log" id="log" aria-live="polite">
+    <p class="note" id="about">
+      A small GPT that has only ever read Lean 4. Give it the header of a declaration and it writes the rest.
+      Each message is a separate declaration: the model has no memory of earlier turns. It runs entirely in your browser.
+    </p>
+  </main>
+
+  <form class="composer" id="composer" autocomplete="off">
+    <div class="examples" id="examples" aria-label="Held-out examples"></div>
+    <div class="entry">
+      <label for="prompt" hidden>Lean 4 declaration header</label>
+      <textarea id="prompt" rows="2" spellcheck="false" placeholder="example (p q : Prop) : p ∧ q → q ∧ p :="></textarea>
+      <button class="send" id="send" type="submit" disabled>Prove</button>
+    </div>
+    <div class="symbols" id="symbols" aria-label="Insert symbol"></div>
+    <div class="controls">
+      <label for="mode">Decoding
+        <select id="mode">
+          <option value="greedy">greedy</option>
+          <option value="sample">sample</option>
+        </select>
+      </label>
+      <label for="temperature">Temperature
+        <input id="temperature" type="range" min="0.1" max="1.5" step="0.1" value="0.8" disabled>
+        <output id="temperature-out" for="temperature">0.8</output>
+      </label>
+      <label for="samples">Samples
+        <input id="samples" type="number" min="1" max="8" value="4" disabled>
+      </label>
+    </div>
+    <p class="hint">
+      <kbd>Enter</kbd> sends, <kbd>Shift</kbd>+<kbd>Enter</kbd> adds a line. Lean abbreviations work: <kbd>\and</kbd> ∧, <kbd>\or</kbd> ∨, <kbd>\not</kbd> ¬, <kbd>\to</kbd> →, <kbd>\iff</kbd> ↔, <kbd>\&lt;</kbd> ⟨, <kbd>\forall</kbd> ∀, <kbd>\exists</kbd> ∃, <kbd>\a</kbd> α.
+    </p>
+  </form>
+</div>
+
+<script src="gpt.js"></script>
+<script src="checker.js"></script>
+<script>
+(function () {
+  "use strict";
+  const $ = (id) => document.getElementById(id);
+  const log = $("log"), promptBox = $("prompt"), send = $("send");
+  const DOMAIN_NAMES = { prop: "propositional logic", fol: "first-order logic", nat: "Nat arithmetic", linear: "linear equations over Int" };
+  const SYMBOLS = ["∧", "∨", "¬", "→", "↔", "⟨", "⟩", "∀", "∃", "α", "≠", "≤"];
+  // A subset of the Lean 4 editor's input abbreviations. As in Lean, an
+  // abbreviation is replaced as soon as no longer one can match: `\and` at once,
+  // `\<` only when the next character is not `-`, `=` or `>`.
+  const ABBREVIATIONS = new Map(Object.entries({
+    and: "∧", or: "∨", not: "¬", neg: "¬", to: "→", r: "→", imp: "→", iff: "↔", lr: "↔",
+    "<": "⟨", ">": "⟩", "<->": "↔", "<-": "←", "<=": "≤", ">=": "≥",
+    forall: "∀", all: "∀", exists: "∃", ex: "∃", a: "α", alpha: "α", b: "β", beta: "β",
+    ne: "≠", le: "≤", ge: "≥", N: "ℕ", nat: "ℕ", Z: "ℤ", int: "ℤ", l: "←", ".": "·",
+  }));
+  const extendsAbbreviation = (prefix) => [...ABBREVIATIONS.keys()].some((k) => k.length > prefix.length && k.startsWith(prefix));
+  let model = null, busy = false;
+
+  function el(tag, cls, text) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  // Expands abbreviations that were pasted rather than typed, then Lean's ASCII
+  // spellings `->`, `<->`, `/\` and `\/`: the model only knows the symbols.
+  function normalise(text) {
+    return text.replace(/\\(<->|<-|<=|>=|[A-Za-z]+|[<>.])/g, (m, k) => ABBREVIATIONS.get(k) || m)
+      .replace(/<->/g, "↔").replace(/->/g, "→").replace(/\/\\/g, "∧").replace(/\\\//g, "∨")
+      .replace(/[ \t]+/g, " ").replace(/\s*\n\s*/g, " ").trim();
+  }
+
+  function checkAnswer(prompt, answer) {
+    const checker = window.LeanCheck;
+    if (!checker) return { cls: "plain", text: "not checked here" };
+    const verdict = checker.verify(prompt, answer);
+    if (verdict === null) return { cls: "plain", text: "not a shape the checkers know" };
+    return verdict ? { cls: "ok", text: "checks" } : { cls: "bad", text: "does not check" };
+  }
+
+  function renderAnswer(prompt) {
+    const box = el("div", "answer");
+    const pre = el("pre");
+    const head = el("span", "head", prompt + " ");
+    const body = el("span", "body");
+    const caret = el("span", "caret");
+    pre.append(head, body, caret);
+    const meta = el("div", "meta");
+    box.append(pre, meta);
+    return { box, body, caret, meta };
+  }
+
+  function finishAnswer(view, prompt, result, ms) {
+    view.caret.remove();
+    const status = result.malformed ? { cls: "bad", text: "malformed: the model emitted a control token" }
+      : result.finished ? checkAnswer(prompt, result.answer) : { cls: "warn", text: "cut off at the length limit" };
+    view.meta.append(el("span", "chip " + status.cls, status.text));
+    view.meta.append(el("span", "", `${result.answer.length} chars · ${ms} ms`));
+    view.meta.append(el("span", "spacer"));
+    const copy = el("button", "chip plain", "Copy");
+    copy.type = "button";
+    copy.addEventListener("click", () => {
+      const text = prompt + " " + result.answer;
+      const done = () => { copy.textContent = "Copied"; setTimeout(() => (copy.textContent = "Copy"), 1500); };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(done, () => selectText(view.box.querySelector("pre")));
+      } else selectText(view.box.querySelector("pre"));
+    });
+    view.meta.append(copy);
+  }
+
+  function selectText(node) {
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+
+  const frame = () => new Promise((resolve) => requestAnimationFrame(() => resolve()));
+
+  async function ask(raw) {
+    const prompt = normalise(raw);
+    if (!prompt || busy || !model) return;
+    busy = true;
+    send.disabled = true;
+    const turn = el("section", "turn");
+    turn.append(el("div", "who", "You"), el("div", "asked", prompt));
+    log.append(turn);
+    try {
+      model.tokenizer.encode(prompt);
+    } catch (err) {
+      turn.append(el("div", "error", "The model cannot read this: some characters are " + err.message + ". Use the Lean symbols (∧ ∨ ¬ → ↔ ⟨ ⟩ ∀ ∃)."));
+      finish();
+      return;
+    }
+    const greedy = $("mode").value === "greedy";
+    const n = greedy ? 1 : Math.max(1, Math.min(8, Number($("samples").value) || 1));
+    const temperature = greedy ? 0 : Number($("temperature").value);
+    turn.append(el("div", "who", greedy ? "Model" : `Model · ${n} samples at temperature ${temperature}`));
+    for (let i = 0; i < n; i++) {
+      const view = renderAnswer(prompt);
+      turn.append(view.box);
+      log.scrollTop = log.scrollHeight;
+      const started = performance.now();
+      let count = 0;
+      try {
+        const result = await model.complete(prompt, {
+          maxNewTokens: 128, temperature, seed: (Date.now() + i * 7919) >>> 0,
+          onToken: async (text) => {
+            view.body.textContent = text;
+            if (++count % 4 === 0) { log.scrollTop = log.scrollHeight; await frame(); }
+          },
+        });
+        view.body.textContent = result.answer;
+        finishAnswer(view, prompt, result, Math.round(performance.now() - started));
+      } catch (err) {
+        view.caret.remove();
+        view.meta.append(el("span", "chip bad", err.message));
+      }
+    }
+    finish();
+
+    function finish() {
+      busy = false;
+      send.disabled = false;
+      log.scrollTop = log.scrollHeight;
+    }
+  }
+
+  function describe(bundle) {
+    const c = bundle.config;
+    const stage = { pretrain: "pretrained only", sft: "SFT", rlhf: "RLHF (PPO)" }[bundle.stage] || bundle.stage;
+    const card = $("card");
+    card.replaceChildren(
+      el("span", "", (bundle.params / 1e6).toFixed(2) + "M parameters"),
+      el("span", "", `${c.n_layer} layers · ${c.n_head} heads · ${c.n_embd} wide`),
+      el("span", "", `context ${c.block_size} chars`),
+      el("span", "", "stage: " + stage),
+      el("span", "flag", "Lean 4 data only"),
+      el("span", "flag", "no safety training"),
+    );
+    const trained = bundle.trained_domains || bundle.domains;
+    card.title = "Trained on: " + trained.map((d) => DOMAIN_NAMES[d] || d).join(", ");
+    const history = {
+      pretrain: "It has been pretrained on Lean declarations and nothing else, so it has never seen this chat's task format.",
+      sft: "It was pretrained on Lean declarations, then fine-tuned to complete them (SFT). This checkpoint has not had RLHF.",
+      rlhf: bundle.reward_source === "oracle"
+        ? "It was pretrained on Lean declarations, fine-tuned to complete them, then trained with PPO against the checker itself (no learned reward model)."
+        : "It was pretrained on Lean declarations, fine-tuned to complete them, then trained with RLHF: PPO against a reward model learned from compared proofs.",
+    }[bundle.stage];
+    const topics = trained.map((d) => DOMAIN_NAMES[d] || d).join(", ");
+    $("about").textContent = `A small GPT that has only ever read Lean 4 (${topics}). ${history || ""} ` +
+      "Give it the header of a declaration and it writes the rest. Each message is a separate declaration: the model has no memory of earlier turns. It runs entirely in your browser.";
+  }
+
+  function insertAtCaret(text) {
+    const start = promptBox.selectionStart, end = promptBox.selectionEnd;
+    promptBox.setRangeText(text, start, end, "end");
+    promptBox.focus();
+  }
+
+  function expandAbbreviation() {
+    const pos = promptBox.selectionStart;
+    // `\name` followed by the character just typed.
+    const m = promptBox.value.slice(0, pos).match(/\\([^\\\s]*)([\s\S])$/);
+    if (!m) return;
+    const [whole, name, typed] = m;
+    const longer = name + typed;
+    if (typed !== "\\" && extendsAbbreviation(longer)) return;  // a longer one may still be coming
+    if (ABBREVIATIONS.has(longer)) {  // complete and unambiguous: replace it now
+      promptBox.setRangeText(ABBREVIATIONS.get(longer), pos - whole.length, pos, "end");
+    } else if (ABBREVIATIONS.has(name)) {  // the typed character ended it
+      promptBox.setRangeText(ABBREVIATIONS.get(name) + typed, pos - whole.length, pos, "end");
+    }
+  }
+
+  SYMBOLS.forEach((s) => {
+    const b = el("button", "", s);
+    b.type = "button";
+    b.title = "Insert " + s;
+    b.addEventListener("click", () => insertAtCaret(s));
+    $("symbols").append(b);
+  });
+  promptBox.addEventListener("input", expandAbbreviation);
+  promptBox.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey && !e.isComposing) {
+      e.preventDefault();
+      $("composer").requestSubmit();
+    }
+  });
+  $("composer").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = promptBox.value;
+    // Enter can submit while the button is disabled; keep the text until it can be sent.
+    if (busy || !model || !normalise(text)) return;
+    promptBox.value = "";
+    ask(text);
+  });
+  $("mode").addEventListener("change", () => {
+    const sampling = $("mode").value === "sample";
+    $("temperature").disabled = !sampling;
+    $("samples").disabled = !sampling;
+  });
+  $("temperature").addEventListener("input", () => ($("temperature-out").value = $("temperature").value));
+
+  fetch("model.json")
+    .then((r) => { if (!r.ok) throw new Error("model.json: HTTP " + r.status); return r.json(); })
+    .then(async (bundle) => {
+      model = new NanoGPT.GPT(bundle);
+      describe(bundle);
+      bundle.examples.forEach((ex) => {
+        const b = el("button", "", ex.prompt);
+        b.type = "button";
+        b.title = (DOMAIN_NAMES[ex.domain] || ex.domain) + " · held-out test problem";
+        b.addEventListener("click", () => ask(ex.prompt));
+        $("examples").append(b);
+      });
+      send.disabled = false;
+      // Open in a working state: answer one held-out example per domain.
+      const seen = new Set();
+      for (const ex of bundle.examples) {
+        if (seen.has(ex.domain)) continue;
+        seen.add(ex.domain);
+        await ask(ex.prompt);
+      }
+    })
+    .catch((err) => {
+      $("card").replaceChildren(el("span", "", "could not load the model"));
+      log.append(el("div", "error", "The model weights did not load (" + err.message + ")."));
+    });
+})();
+</script>
+
+</body></html>
