@@ -1,0 +1,15 @@
+reward: 6000 prompts x 8 samples from out/sft.pt (sft): 47987 finished, 13952 correct, 496s
+26783 checker-labelled comparisons, written to out/preferences.jsonl
+  prop: 8092 comparisons, 11994 finished samples, 2515 correct
+  fol: 2464 comparisons, 11998 finished samples, 8539 correct
+  nat: 8396 comparisons, 11995 finished samples, 1593 correct
+  linear: 7831 comparisons, 12000 finished samples, 1305 correct
+25622 train comparisons, 1161 held out (251 prompts)
+iter    500  lr 4.75e-05  train loss 0.6567  val loss 0.7253  val acc 0.515 (prop 0.605 fol 0.542 nat 0.452 linear 0.473)  413s
+iter   1000  lr 3.95e-05  train loss 0.5696  val loss 0.7683  val acc 0.542 (prop 0.542 fol 0.617 nat 0.576 linear 0.473)  807s
+iter   1500  lr 2.81e-05  train loss 0.4833  val loss 0.8512  val acc 0.548 (prop 0.589 fol 0.575 nat 0.570 linear 0.463)  1190s
+iter   2000  lr 1.66e-05  train loss 0.4061  val loss 0.9218  val acc 0.547 (prop 0.581 fol 0.617 nat 0.515 linear 0.518)  1587s
+iter   2500  lr 8.13e-06  train loss 0.3516  val loss 0.9923  val acc 0.538 (prop 0.575 fol 0.625 nat 0.515 linear 0.489)  1989s
+iter   3000  lr 5.00e-06  train loss 0.3245  val loss 1.0243  val acc 0.558 (prop 0.581 fol 0.642 nat 0.534 linear 0.527)  2375s
+reward mean 0.0094 std 2.7438 over 2198 finished SFT samples of held-out prompts (all 47987: mean -0.1654 std 2.8006); held-out AUC for correctness 0.6175 (prop 0.584 fol 0.656 nat 0.626 linear 0.550)
+saved out/reward.pt  (2924s)

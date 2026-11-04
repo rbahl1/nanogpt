@@ -1,0 +1,8 @@
+sft: from out/pretrain.pt (pretrain), 80,000 train examples, 300 val problems, device cpu
+iter    500  lr 2.85e-04  train loss 0.1956  val loss 0.1661  val acc prop 0.107 (8/75), fol 0.507 (38/75), nat 0.107 (8/75), linear 0.027 (2/75), all 0.187 (56/300)  184s
+iter   1000  lr 2.37e-04  train loss 0.1534  val loss 0.1454  val acc prop 0.227 (17/75), fol 0.680 (51/75), nat 0.067 (5/75), linear 0.053 (4/75), all 0.257 (77/300)  371s
+iter   1500  lr 1.69e-04  train loss 0.1377  val loss 0.1299  val acc prop 0.187 (14/75), fol 0.773 (58/75), nat 0.107 (8/75), linear 0.053 (4/75), all 0.280 (84/300)  563s
+iter   2000  lr 9.97e-05  train loss 0.1273  val loss 0.1210  val acc prop 0.253 (19/75), fol 0.773 (58/75), nat 0.107 (8/75), linear 0.080 (6/75), all 0.303 (91/300)  756s
+iter   2500  lr 4.88e-05  train loss 0.1150  val loss 0.1142  val acc prop 0.293 (22/75), fol 0.827 (62/75), nat 0.133 (10/75), linear 0.067 (5/75), all 0.330 (99/300)  948s
+iter   3000  lr 3.00e-05  train loss 0.1114  val loss 0.1116  val acc prop 0.253 (19/75), fol 0.800 (60/75), nat 0.187 (14/75), linear 0.040 (3/75), all 0.320 (96/300)  1154s
+saved out/sft.pt

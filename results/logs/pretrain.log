@@ -1,0 +1,9 @@
+pretrain: 803,072 parameters, 158,404 train / 1,596 val documents (mean 88 tokens), device cpu
+resuming from iteration 2250
+iter   2500  lr 5.65e-04  train 0.3645  val 0.3702  11,967 tok/s  61s
+iter   3000  lr 4.22e-04  train 0.3497  val 0.3564  13,860 tok/s  165s
+iter   3500  lr 2.93e-04  train 0.3370  val 0.3431  13,816 tok/s  270s
+iter   4000  lr 1.90e-04  train 0.3262  val 0.3339  14,105 tok/s  373s
+iter   4500  lr 1.23e-04  train 0.3199  val 0.3260  13,756 tok/s  478s
+iter   5000  lr 1.00e-04  train 0.3149  val 0.3230  14,067 tok/s  581s
+saved out/pretrain.pt
